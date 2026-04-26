@@ -48,9 +48,11 @@ public class TransactionsController : ControllerBase
     /// <summary>
     /// Creates a new transaction. Id, Timestamp, and Status are set server-side.
     /// Returns 201 with a Location header pointing to GET /transactions/{id}.
+    /// Returns 400 with field-level errors when validation fails.
     /// </summary>
     [HttpPost]
     [ProducesResponseType(typeof(TransactionResponse), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
     public IActionResult Create([FromBody] CreateTransactionRequest request)
     {
         var transaction = _service.CreateTransaction(request);
