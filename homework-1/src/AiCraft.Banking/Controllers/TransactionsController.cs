@@ -45,6 +45,18 @@ public class TransactionsController : ControllerBase
         return transaction is null ? NotFound() : Ok(MapToResponse(transaction));
     }
 
+    /// <summary>
+    /// Creates a new transaction. Id, Timestamp, and Status are set server-side.
+    /// Returns 201 with a Location header pointing to GET /transactions/{id}.
+    /// </summary>
+    [HttpPost]
+    [ProducesResponseType(typeof(TransactionResponse), StatusCodes.Status201Created)]
+    public IActionResult Create([FromBody] CreateTransactionRequest request)
+    {
+        var transaction = _service.CreateTransaction(request);
+        return CreatedAtAction(nameof(GetById), new { id = transaction.Id }, MapToResponse(transaction));
+    }
+
     // Shared by all actions — maps the internal domain model to the public DTO.
     internal static TransactionResponse MapToResponse(Transaction t) => new()
     {
