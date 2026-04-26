@@ -161,12 +161,8 @@ homework-1/
 │       │   ├── AccountBalanceResponse.cs
 │       │   ├── CurrencyBalance.cs
 │       │   └── AccountSummaryResponse.cs
-│       ├── Validators/
-│       │   └── CreateTransactionRequestValidator.cs
-│       └── Services/
-│           ├── ITransactionService.cs
-│           ├── TransactionService.cs
-│           └── DataSeeder.cs
+│       └── Validators/
+│           └── CreateTransactionRequestValidator.cs
 ├── 📂 demo/
 │   ├── run.sh
 │   ├── sample-requests.http
@@ -217,7 +213,7 @@ curl http://localhost:5092/accounts/ACC-12345/summary
 
 ## 🔗 References
 
-- [davidfowl/TodoApi](https://github.com/davidfowl/TodoApi) — .NET 8 minimal API patterns
+- [davidfowl/TodoApi](https://github.com/davidfowl/TodoApi) — .NET 9 minimal API patterns
 - [jasontaylordev/CleanArchitecture](https://github.com/jasontaylordev/CleanArchitecture) — clean layering conventions
 - [FluentValidation documentation](https://docs.fluentvalidation.net) — validation patterns
 - [Conventional Commits](https://www.conventionalcommits.org) — commit message standard
