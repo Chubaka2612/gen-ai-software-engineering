@@ -30,6 +30,21 @@ public class TransactionsController : ControllerBase
         return Ok(result);
     }
 
+    /// <summary>
+    /// Returns a single transaction by its ID.
+    /// Returns 404 if no transaction with the given ID exists.
+    /// Returns 404 for non-Guid paths — the route constraint prevents matching entirely.
+    /// </summary>
+    /// <param name="id">The transaction Guid.</param>
+    [HttpGet("{id:guid}")]
+    [ProducesResponseType(typeof(TransactionResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public IActionResult GetById(Guid id)
+    {
+        var transaction = _service.GetTransactionById(id);
+        return transaction is null ? NotFound() : Ok(MapToResponse(transaction));
+    }
+
     // Shared by all actions — maps the internal domain model to the public DTO.
     internal static TransactionResponse MapToResponse(Transaction t) => new()
     {
