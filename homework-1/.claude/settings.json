@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "dotnet build homework-1/src/AiCraft.Banking/AiCraft.Banking.csproj --no-incremental -q"
+            "command": "dotnet build homework-1/src/AiCraft.Banking/AiCraft.Banking.csproj -q"
           }
         ]
       }

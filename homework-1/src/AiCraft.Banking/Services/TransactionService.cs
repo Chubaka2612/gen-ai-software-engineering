@@ -84,6 +84,13 @@ public class TransactionService : ITransactionService
         };
     }
 
+    // Bypasses creation logic — used only by DataSeeder to load pre-built snapshots.
+    internal void Seed(IEnumerable<Transaction> transactions)
+    {
+        foreach (var t in transactions)
+            _transactions.TryAdd(t.Id, t);
+    }
+
     /// <inheritdoc />
     public AccountSummaryResponse? GetAccountSummary(string accountId)
     {
