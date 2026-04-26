@@ -28,4 +28,18 @@ public class AccountsController : ControllerBase
         var result = _service.GetAccountBalance(accountId);
         return result is null ? NotFound() : Ok(result);
     }
+
+    /// <summary>
+    /// Returns aggregate stats across all transactions (any status) for an account.
+    /// Returns 404 when the accountId has never appeared in any transaction.
+    /// </summary>
+    /// <param name="accountId">Account identifier in ACC-XXXXX format.</param>
+    [HttpGet("{accountId}/summary")]
+    [ProducesResponseType(typeof(AccountSummaryResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public IActionResult GetSummary(string accountId)
+    {
+        var result = _service.GetAccountSummary(accountId);
+        return result is null ? NotFound() : Ok(result);
+    }
 }
