@@ -73,14 +73,23 @@ public class TransactionService : ITransactionService
             return null;
 
         // Only Completed transactions affect the settled balance; Pending/Failed are excluded.
-        var balance = all
-            .Where(t => t.Status == TransactionStatus.Completed)
-            .Sum(t => t.ToAccount == accountId ? t.Amount : -t.Amount);
+        var completed = all.Where(t => t.Status == TransactionStatus.Completed).ToList();
+
+        // Group by currency so mixed-currency accounts get an accurate balance per currency.
+        var balances = completed
+            .GroupBy(t => t.Currency)
+            .Select(g => new CurrencyBalance
+            {
+                Currency = g.Key,
+                Balance = g.Sum(t => t.ToAccount == accountId ? t.Amount : -t.Amount)
+            })
+            .OrderBy(b => b.Currency)
+            .ToList();
 
         return new AccountBalanceResponse
         {
             AccountId = accountId,
-            Balance = balance
+            Balances = balances
         };
     }
 

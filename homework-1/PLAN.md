@@ -22,6 +22,7 @@ homework-1/
 │           ├── TransactionResponse.cs
 │           ├── TransactionFilter.cs
 │           ├── AccountBalanceResponse.cs
+│           ├── CurrencyBalance.cs
 │           └── AccountSummaryResponse.cs
 ├── demo/
 │   ├── run.bat                          # starts the API on Windows
@@ -34,7 +35,7 @@ homework-1/
 ```
 
 **Why this layout:**  
-Controllers stay in their own folder and import only DTOs and the service interface. All domain objects live in `Models`. DTOs live in `DTOs` — they are the public contract, never exposed as raw `Transaction` objects. The service is the only place that touches the in-memory list.
+Controllers stay in their own folder and import only DTOs and the service interface. All domain objects live in `Models`. DTOs live in `DTOs` — they are the public contract, never exposed as raw `Transaction` objects. The service is the only place that touches the in-memory store.
 
 ---
 
@@ -64,8 +65,9 @@ GetTransactionById(Guid id) → Transaction?
 
 GetAccountBalance(string accountId) → AccountBalanceResponse?
     Returns null if accountId has no transactions.
-    Balance = Σ amount where toAccount == accountId (Completed)
-            − Σ amount where fromAccount == accountId (Completed)
+    Groups Completed transactions by currency; for each currency:
+        balance = Σ amount where toAccount == accountId
+                − Σ amount where fromAccount == accountId
 
 GetAccountSummary(string accountId) → AccountSummaryResponse?
     Returns null if accountId has no transactions.
@@ -114,11 +116,14 @@ All parameters are optional and combinable.
 ```json
 {
   "accountId": "ACC-12345",
-  "balance":   250.00,
-  "currency":  "USD"
+  "balances": [
+    { "currency": "USD", "balance": 250.00 },
+    { "currency": "EUR", "balance": 100.00 }
+  ]
 }
 ```
-Note: balance is currency-agnostic for now (sums across all currencies). If multi-currency is needed later, this is the place to extend.
+Each entry in `balances` is a `CurrencyBalance` (currency + balance). Sorted alphabetically by currency.
+Single-currency accounts return a one-element array. Balances count Completed transactions only.
 
 **AccountSummaryResponse**
 ```json
@@ -149,12 +154,12 @@ Note: balance is currency-agnostic for now (sums across all currencies). If mult
 ## 6. Potential Edge Cases
 
 - **Unknown account on balance/summary**: no transactions exist for that accountId — return `404` rather than a zero balance, to distinguish "account exists but empty" from "account never seen."
-- **Multi-currency balance**: summing USD and EUR into one decimal is misleading — plan notes this; for now, sum all currencies together and document the limitation.
+- **Multi-currency balance**: resolved by grouping Completed transactions by currency and returning a `CurrencyBalance[]` array — one entry per currency, so USD and EUR are never mixed into one number.
 - **Deposit with no fromAccount / Withdrawal with no toAccount**: these fields are logically optional per type — validation must be type-aware, not just null-checking.
 - **Transfer to self**: `fromAccount == toAccount` — must be rejected with `400`.
 - **Amount precision**: `decimal` arithmetic is exact, but input deserialization from JSON `number` could introduce floating-point noise — parse and round to 2 decimal places on ingestion.
 - **Invalid Guid in route**: `GET /transactions/not-a-guid` — ASP.NET Core model binding returns `400` automatically if the parameter is typed as `Guid`.
 - **Filter date parsing**: `?from=not-a-date` — bind as `DateTimeOffset?` so the framework rejects malformed values before the service is called.
-- **Concurrent writes**: `List<Transaction>` is not thread-safe — wrap mutations in a `lock` inside the service to prevent race conditions under concurrent requests.
+- **Concurrent writes**: resolved by using `ConcurrentDictionary<Guid, Transaction>` — lock-free reads, atomic writes via `TryAdd`, no manual locking needed.
 - **Empty filter result**: `GET /transactions?type=Transfer` with no matches — return `200` with an empty array, not `404`.
 - **Case sensitivity on Type/Status**: JSON deserialization should be case-insensitive for enum strings to accept `"transfer"` and `"Transfer"` equally.
