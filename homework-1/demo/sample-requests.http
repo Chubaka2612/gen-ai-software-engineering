@@ -1,5 +1,5 @@
 ### Create a transaction
-POST http://localhost:5000/transactions
+POST http://localhost:5092/transactions
 Content-Type: application/json
 
 {
@@ -13,29 +13,29 @@ Content-Type: application/json
 ###
 
 ### List all transactions
-GET http://localhost:5000/transactions
+GET http://localhost:5092/transactions
 
 ###
 
 ### Filter by account
-GET http://localhost:5000/transactions?accountId=ACC-12345
+GET http://localhost:5092/transactions?accountId=ACC-12345
 
 ###
 
 ### Filter by type and date range
-GET http://localhost:5000/transactions?type=Transfer&from=2024-01-01&to=2024-12-31
+GET http://localhost:5092/transactions?type=Transfer&from=2024-01-01&to=2024-12-31
 
 ###
 
 ### Get transaction by ID
-GET http://localhost:5000/transactions/00000000-0000-0000-0000-000000000000
+GET http://localhost:5092/transactions/00000000-0000-0000-0000-000000000000
 
 ###
 
 ### Get account balance
-GET http://localhost:5000/accounts/ACC-12345/balance
+GET http://localhost:5092/accounts/ACC-12345/balance
 
 ###
 
 ### Get account summary
-GET http://localhost:5000/accounts/ACC-12345/summary
+GET http://localhost:5092/accounts/ACC-12345/summary
