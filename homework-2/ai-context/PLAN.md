@@ -110,14 +110,14 @@ Business rules: Subject 1–200 chars; Description 10–2000 chars;
 
 ### Tasks
 
-- [ ] Implement `Ticket.cs` constructor body and status-transition methods
-- [ ] Implement `TicketRepository.cs` (ConcurrentDictionary — all 5 methods)
-- [ ] Fill `CreateTicketValidator.cs` rule chains (subject, description, email)
-- [ ] Fill `UpdateTicketValidator.cs` rule chains
-- [ ] Implement `TicketService.cs` (all 5 methods: validate → repository → map DTO → return Result)
-- [ ] Implement `TicketController.cs` (all 5 actions with uniform `{"code":"...","message":"..."}` error envelope)
-- [ ] Wire DI: `ITicketService → TicketService` (Scoped) in `AddApplicationServices`
-- [ ] Wire DI: `ITicketRepository → TicketRepository` (Singleton) in `AddInfrastructureServices`
+- [x] Implement `Ticket.cs` constructor body and status-transition methods
+- [x] Implement `TicketRepository.cs` (ConcurrentDictionary — all 5 methods)
+- [x] Fill `CreateTicketValidator.cs` rule chains (subject, description, email)
+- [x] Fill `UpdateTicketValidator.cs` rule chains
+- [x] Implement `TicketService.cs` (all 5 methods: validate → repository → map DTO → return Result)
+- [x] Implement `TicketController.cs` (all 5 actions with uniform `{"code":"...","message":"..."}` error envelope)
+- [x] Wire DI: `ITicketService → TicketService` (Scoped) in `AddApplicationServices`
+- [x] Wire DI: `ITicketRepository → TicketRepository` (Singleton) in `AddInfrastructureServices`
 
 **Prompt trigger:**
 ```
@@ -397,6 +397,9 @@ Output path: tests/fixtures/
 | 2026-05-06 | 1 | `GetTicketById` has no Request DTO | `id` is a route parameter passed directly to the service method | Architect agent |
 | 2026-05-06 | 1 | `TicketListItem` co-defined in `ListTicketsResponse.cs` | Used only by `ListTicketsResponse`; no reason for a separate file | Architect agent |
 | 2026-05-06 | 1 | `ITicketRepository.GetAllAsync()` takes no filter params | Service layer handles filtering/pagination on the returned collection; keeps repo interface minimal | Architect agent |
+| 2026-05-06 | 2 | `Ticket.TransitionTo/CanBeDeleted/ApplyUpdate` are `public` | Service is in a different assembly (Application); `internal` would not cross the assembly boundary | Developer agent |
+| 2026-05-06 | 2 | `ListTickets` controller binds individual `[FromQuery]` params instead of `[FromQuery] ListTicketsRequest` | Positional records require primary-constructor binding; individual params give default values for `page`/`pageSize` | Developer agent |
+| 2026-05-06 | 2 | `UpdateAsync` uses `TryGetValue` + direct indexer assignment | `TryUpdate` requires the old value; since the entity is mutated in-place before the call, the indexer assignment is the correct single-step write | Developer agent |
 
 ---
 
