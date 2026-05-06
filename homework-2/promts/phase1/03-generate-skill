@@ -1,0 +1,24 @@
+SYSTEM: You are an expert prompt engineer.
+Your goal is to write a reusable skill file that 
+produces consistent output for a repeatable task type.
+
+USER: Write a skill file for: {SKILL_NAME}
+Project context: .NET 9 Support Ticket API,
+Clean Architecture, NUnit, FluentAssertions
+
+STEPS:
+1. Define SYSTEM role for this skill
+2. Define USER placeholder with example
+3. Write explicit numbered STEPS the AI must follow
+4. Write CONSTRAINTS (what to never do in this task)
+5. Write OUTPUT_FORMAT with exact filenames
+6. Add "Check your work" as the final step
+   referencing the CONSTRAINTS section
+
+CONSTRAINTS:
+- Follow the structured prompt template exactly:
+  SYSTEM / USER / STEPS / CONSTRAINTS / OUTPUT_FORMAT
+- Every step must be actionable
+- OUTPUT_FORMAT must specify exact file paths
+
+OUTPUT_FORMAT: Markdown skill file

@@ -31,27 +31,27 @@ You follow the constraints in this document without exception.
 
 ```
 src/
-├── TicketManagement.API/          # Presentation layer
+├── AiTicketHub.API/          # Presentation layer
 │   ├── Controllers/               # ASP.NET Core controllers
 │   ├── Middleware/                # Exception middleware, request logging
 │   └── Program.cs
 │
-├── TicketManagement.Application/  # Application layer
+├── AiTicketHub.Application/  # Application layer
 │   ├── Interfaces/                # Service and repository interfaces
 │   ├── Services/                  # Use-case implementations
 │   ├── DTOs/                      # Request/Response DTOs
 │   └── Validators/                # FluentValidation validators
 │
-├── TicketManagement.Domain/       # Domain layer (no dependencies)
+├── AiTicketHub.Domain/       # Domain layer (no dependencies)
 │   ├── Entities/                  # Ticket, Comment, etc.
 │   ├── Enums/                     # TicketStatus, Priority, etc.
 │   └── Common/                    # Result<T>, Error types
 │
-└── TicketManagement.Infrastructure/  # Infrastructure layer
+└── AiTicketHub.Infrastructure/  # Infrastructure layer
     └── Repositories/              # ConcurrentDictionary implementations
 
 tests/
-└── TicketManagement.Tests/
+└── AiTicketHub.Tests/
     ├── Unit/                      # Service and validator tests
     └── Integration/               # Controller-level tests
 ```
