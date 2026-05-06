@@ -13,15 +13,18 @@ public class TicketService : ITicketService
     private readonly ITicketRepository _repository;
     private readonly IValidator<CreateTicketRequest> _createValidator;
     private readonly IValidator<UpdateTicketRequest> _updateValidator;
+    private readonly ITicketImportService _importService;
 
     public TicketService(
         ITicketRepository repository,
         IValidator<CreateTicketRequest> createValidator,
-        IValidator<UpdateTicketRequest> updateValidator)
+        IValidator<UpdateTicketRequest> updateValidator,
+        ITicketImportService importService)
     {
         _repository      = repository;
         _createValidator = createValidator;
         _updateValidator = updateValidator;
+        _importService   = importService;
     }
 
     public async Task<Result<CreateTicketResponse>> CreateTicketAsync(CreateTicketRequest request)
@@ -142,6 +145,12 @@ public class TicketService : ITicketService
             return Result.Failure(canDelete.Error!);
 
         return await _repository.DeleteAsync(id);
+    }
+
+    public async Task<Result<ImportTicketsResponse>> ImportTicketsAsync(Stream input, string format, CancellationToken ct = default)
+    {
+        var response = await _importService.ImportAsync(input, format, ct);
+        return Result<ImportTicketsResponse>.Success(response);
     }
 
     private static CreateTicketResponse MapToCreateResponse(Ticket t) =>

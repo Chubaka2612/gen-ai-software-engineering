@@ -12,8 +12,6 @@ STEPS:
 3. Write explicit numbered STEPS the AI must follow
 4. Write CONSTRAINTS (what to never do in this task)
 5. Write OUTPUT_FORMAT with exact filenames
-6. Add "Check your work" as the final step
-   referencing the CONSTRAINTS section
 
 CONSTRAINTS:
 - Follow the structured prompt template exactly:

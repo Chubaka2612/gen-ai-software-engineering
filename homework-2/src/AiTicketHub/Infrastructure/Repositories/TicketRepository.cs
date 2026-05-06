@@ -48,4 +48,16 @@ public class TicketRepository : ITicketRepository
 
         return Task.FromResult(Result.Success());
     }
+
+    public Task<IReadOnlyList<Result<Ticket>>> BulkAddAsync(IReadOnlyList<Ticket> tickets)
+    {
+        var results = new List<Result<Ticket>>(tickets.Count);
+        foreach (var ticket in tickets)
+        {
+            results.Add(_store.TryAdd(ticket.Id, ticket)
+                ? Result<Ticket>.Success(ticket)
+                : Result<Ticket>.Failure(Errors.TicketDuplicate));
+        }
+        return Task.FromResult<IReadOnlyList<Result<Ticket>>>(results);
+    }
 }

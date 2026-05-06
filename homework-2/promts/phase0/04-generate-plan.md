@@ -11,8 +11,7 @@ Available skills: create-endpoint, create-parser,
                   create-tests, create-docs, create-project-layout.md, create-structure.md
 
 STEPS:
-1. Break the project into phases (Foundation through 
-   Delivery)
+1. Break the project into phases (Foundation through Delivery)
 2. For each phase define:
    - Goal (one sentence)
    - Task checklist with [ ] status markers

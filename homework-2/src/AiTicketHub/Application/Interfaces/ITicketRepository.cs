@@ -11,4 +11,5 @@ public interface ITicketRepository
     Task<Result<IReadOnlyList<Ticket>>>   GetAllAsync();
     Task<Result<Ticket>>                  UpdateAsync(Ticket ticket);
     Task<Result>                          DeleteAsync(Guid id);
+    Task<IReadOnlyList<Result<Ticket>>>   BulkAddAsync(IReadOnlyList<Ticket> tickets);
 }

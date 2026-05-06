@@ -62,6 +62,37 @@ public class TicketController : ControllerBase
         return NoContent();
     }
 
+    [HttpPost("import")]
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> ImportTickets(IFormFile? file, CancellationToken ct)
+    {
+        if (file == null || file.Length == 0)
+            return BadRequest(new { code = "Validation.Failed", message = "A non-empty file is required." });
+
+        if (file.Length > 10 * 1024 * 1024)
+            return BadRequest(new { code = "Validation.Failed", message = "File exceeds the 10 MB size limit." });
+
+        var format = DetectFormat(file.ContentType, Path.GetExtension(file.FileName));
+        if (format == null)
+            return BadRequest(new { code = "Validation.Failed", message = "Unsupported file format. Allowed: CSV, JSON, XML." });
+
+        await using var stream = file.OpenReadStream();
+        var result = await _service.ImportTicketsAsync(stream, format, ct);
+        if (!result.IsSuccess) return MapError(result.Error!);
+        return Ok(result.Value);
+    }
+
+    private static string? DetectFormat(string? contentType, string? extension)
+    {
+        var ct  = contentType?.ToLowerInvariant() ?? string.Empty;
+        var ext = extension?.ToLowerInvariant()   ?? string.Empty;
+
+        if (ct.Contains("csv")  || ext == ".csv")  return "csv";
+        if (ct.Contains("json") || ext == ".json") return "json";
+        if (ct.Contains("xml")  || ext == ".xml")  return "xml";
+        return null;
+    }
+
     private IActionResult MapError(Error error) => error.Code switch
     {
         "Ticket.NotFound"      => NotFound(error),

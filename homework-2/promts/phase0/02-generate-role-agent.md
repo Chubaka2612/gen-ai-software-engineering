@@ -10,9 +10,7 @@ STEPS:
 1. Define the agent's role and mindset
 2. Define the agent's priority order 
    (what matters most to this role)
-3. Define default behaviors when given any task
-4. Define what this agent never does
-5. Check your work — does this agent conflict  with any other agent's responsibilities?
+3. Define what this agent never does
 
 CONSTRAINTS:
 - Each agent has one clear responsibility

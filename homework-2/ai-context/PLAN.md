@@ -144,21 +144,19 @@ Contracts at:  src/AiTicketHub
 ### Tasks
 
 **Parser layer (create-parser.md):**
-- [ ] Implement `CsvTicketParser.cs` with `ParseResult<Ticket>` pattern
-- [ ] Implement `JsonTicketParser.cs` with `ParseResult<Ticket>` pattern
-- [ ] Implement `XmlTicketParser.cs` with `ParseResult<Ticket>` pattern
-- [ ] Implement `TicketImportService.cs` coordinating all three parsers
+- [x] Implement `CsvTicketParser.cs` with `ParseResult<Ticket>` pattern
+- [x] Implement `JsonTicketParser.cs` with `ParseResult<Ticket>` pattern
+- [x] Implement `XmlTicketParser.cs` with `ParseResult<Ticket>` pattern
+- [x] Implement `TicketImportService.cs` coordinating all three parsers
 
 **Endpoint layer (create-endpoint.md):**
-- [ ] Add `ImportRequest.cs` DTO (IFormFile, optional format hint)
-- [ ] Add `ImportResponse.cs` DTO (Total: int, Successful: int, Failed: int, Errors: list)
-- [ ] Add `ImportTicketsValidator.cs` (file not null, size limit, allowed MIME types)
-- [ ] Add `ImportTickets` method signature to `ITicketService.cs`
-- [ ] Implement `ImportTickets` in `TicketService.cs` (delegate to import service, accumulate results)
-- [ ] Add `IImportTicketRepository` method to `ITicketRepository.cs` (BulkAdd)
-- [ ] Implement `BulkAdd` in `TicketRepository.cs`
-- [ ] Add `POST /tickets/import` action to `TicketController.cs`
-- [ ] Register `ITicketImportService → TicketImportService` in DI
+- [x] Add `ImportTicketsResponse.cs` DTO (Total: int, Successful: int, Failed: int, Errors: list)
+- [x] Add `ImportTickets` method signature to `ITicketService.cs`
+- [x] Implement `ImportTickets` in `TicketService.cs` (delegate to import service, accumulate results)
+- [x] Add `BulkAddAsync` method to `ITicketRepository.cs`
+- [x] Implement `BulkAddAsync` in `TicketRepository.cs`
+- [x] Add `POST /tickets/import` action to `TicketController.cs`
+- [x] Register `ITicketImportService → TicketImportService` in DI
 
 **Prompt trigger (step 1 — parsers):**
 ```
@@ -400,6 +398,9 @@ Output path: tests/fixtures/
 | 2026-05-06 | 2 | `Ticket.TransitionTo/CanBeDeleted/ApplyUpdate` are `public` | Service is in a different assembly (Application); `internal` would not cross the assembly boundary | Developer agent |
 | 2026-05-06 | 2 | `ListTickets` controller binds individual `[FromQuery]` params instead of `[FromQuery] ListTicketsRequest` | Positional records require primary-constructor binding; individual params give default values for `page`/`pageSize` | Developer agent |
 | 2026-05-06 | 2 | `UpdateAsync` uses `TryGetValue` + direct indexer assignment | `TryUpdate` requires the old value; since the entity is mutated in-place before the call, the indexer assignment is the correct single-step write | Developer agent |
+| 2026-05-06 | 3 | `IFormFile` validation done inline in controller, no separate validator class | `IFormFile` is an ASP.NET Core type; adding a framework reference to Application layer would violate Clean Architecture. Inline validation keeps Application independent | Developer agent |
+| 2026-05-06 | 3 | `BulkAddAsync` returns `IReadOnlyList<Result<Ticket>>` (one per input) | Enables per-record success/failure tracking for non-atomic partial import without a custom result type | Developer agent |
+| 2026-05-06 | 3 | `TicketImportService` lives in Application/Services and depends on parser interfaces | Parser interfaces are Application contracts; keeping the coordinator in Application preserves Clean Architecture — parsers are infrastructure details behind those interfaces | Developer agent |
 
 ---
 
