@@ -29,16 +29,16 @@ create-project-layout → create-structure → implement-feature
 
 ### Tasks
 
-- [ ] Create `AiTicketHub.sln` with five projects (Domain, Application, Infrastructure, API, Tests)
-- [ ] Generate `AiTicketHub.Domain.csproj` (no external references)
-- [ ] Generate `AiTicketHub.Application.csproj` (references Domain; FluentValidation 11.x)
-- [ ] Generate `AiTicketHub.Infrastructure.csproj` (references Application)
-- [ ] Generate `AiTicketHub.API.csproj` (references Application + Infrastructure; FluentValidation.AspNetCore 11.x)
-- [ ] Generate `AiTicketHub.Tests.csproj` (references API; NUnit 4.x, FluentAssertions 6.x, Moq 4.x, Mvc.Testing)
-- [ ] Create all empty folders with `.gitkeep`
-- [ ] Create `Domain/Common/Error.cs` and `Domain/Common/Result.cs`
-- [ ] Create empty DI stubs: `ApplicationServiceExtensions.cs`, `InfrastructureServiceExtensions.cs`
-- [ ] Create `API/Program.cs` skeleton with three wiring calls
+- [x] Create `AiTicketHub.sln` with five projects (Domain, Application, Infrastructure, API, Tests)
+- [x] Generate `AiTicketHub.Domain.csproj` (no external references)
+- [x] Generate `AiTicketHub.Application.csproj` (references Domain; FluentValidation 11.x)
+- [x] Generate `AiTicketHub.Infrastructure.csproj` (references Application)
+- [x] Generate `AiTicketHub.API.csproj` (references Application + Infrastructure; FluentValidation.AspNetCore 11.x)
+- [x] Generate `AiTicketHub.Tests.csproj` (references API; NUnit 4.x, FluentAssertions 6.x, Moq 4.x, Mvc.Testing)
+- [x] Create all empty folders with `.gitkeep`
+- [x] Create `Domain/Common/Error.cs` and `Domain/Common/Result.cs`
+- [x] Create empty DI stubs: `ApplicationServiceExtensions.cs`, `InfrastructureServiceExtensions.cs`
+- [x] Create `API/Program.cs` skeleton with three wiring calls
 
 **Prompt trigger:**
 ```
@@ -391,7 +391,8 @@ Output path: tests/fixtures/
 
 | Date | Phase | Decision | Rationale | Made By |
 |------|-------|----------|-----------|---------|
-|      |       |          |           |         |
+| 2026-05-06 | 0 | Added non-generic `Result` class alongside `Result<T>` | Enables void-return operations (e.g. Delete) without boxing a dummy value | Architect agent |
+| 2026-05-06 | 0 | `Program.cs` exposes `public partial class Program` | Required by `WebApplicationFactory<Program>` in the Tests project | Architect agent |
 
 ---
 
