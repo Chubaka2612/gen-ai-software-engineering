@@ -62,18 +62,18 @@ Target framework: net9.0
 
 ### Tasks
 
-- [ ] Define `Domain/Entities/Ticket.cs` skeleton (properties + constructor signature)
-- [ ] Define `Domain/Enums/TicketCategory.cs` (account_access | technical_issue | billing_question | feature_request | bug_report | other)
-- [ ] Define `Domain/Enums/TicketPriority.cs` (urgent | high | medium | low)
-- [ ] Define `Domain/Enums/TicketStatus.cs` (new | in_progress | waiting_customer | resolved | closed)
-- [ ] Define `Domain/Enums/TicketSource.cs` (web_form | email | api | chat | phone)
-- [ ] Define `Domain/Enums/DeviceType.cs` (desktop | mobile | tablet)
-- [ ] Populate `Domain/Common/Errors.cs` with all error codes (NotFound, InvalidStatus, Duplicate, ValidationFailed)
-- [ ] Define `Application/Interfaces/ITicketService.cs` (5 method signatures: Create, GetById, List, Update, Delete)
-- [ ] Define `Application/Interfaces/ITicketRepository.cs` (matching repository signatures)
-- [ ] Create Request + Response DTO pairs for each operation (10 files)
-- [ ] Create validator class skeletons for writable operations (Create, Update — empty constructors)
-- [ ] Output DI registration note
+- [x] Define `Domain/Entities/Ticket.cs` skeleton (properties + constructor signature)
+- [x] Define `Domain/Enums/TicketCategory.cs` (account_access | technical_issue | billing_question | feature_request | bug_report | other)
+- [x] Define `Domain/Enums/TicketPriority.cs` (urgent | high | medium | low)
+- [x] Define `Domain/Enums/TicketStatus.cs` (new | in_progress | waiting_customer | resolved | closed)
+- [x] Define `Domain/Enums/TicketSource.cs` (web_form | email | api | chat | phone)
+- [x] Define `Domain/Enums/DeviceType.cs` (desktop | mobile | tablet)
+- [x] Populate `Domain/Common/Errors.cs` with all error codes (NotFound, InvalidStatus, Duplicate, ValidationFailed)
+- [x] Define `Application/Interfaces/ITicketService.cs` (5 method signatures: Create, GetById, List, Update, Delete)
+- [x] Define `Application/Interfaces/ITicketRepository.cs` (matching repository signatures)
+- [x] Create Request + Response DTO pairs for each operation (9 files — DeleteTicket has no DTOs)
+- [x] Create validator class skeletons for writable operations (Create, Update — empty constructors)
+- [x] Output DI registration note
 
 **Prompt trigger:**
 ```
@@ -393,6 +393,10 @@ Output path: tests/fixtures/
 |------|-------|----------|-----------|---------|
 | 2026-05-06 | 0 | Added non-generic `Result` class alongside `Result<T>` | Enables void-return operations (e.g. Delete) without boxing a dummy value | Architect agent |
 | 2026-05-06 | 0 | `Program.cs` exposes `public partial class Program` | Required by `WebApplicationFactory<Program>` in the Tests project | Architect agent |
+| 2026-05-06 | 1 | `DeleteTicket` has no Request or Response DTO | No body is submitted; service returns `Task<Result>` (void); 204 No Content on success | Architect agent |
+| 2026-05-06 | 1 | `GetTicketById` has no Request DTO | `id` is a route parameter passed directly to the service method | Architect agent |
+| 2026-05-06 | 1 | `TicketListItem` co-defined in `ListTicketsResponse.cs` | Used only by `ListTicketsResponse`; no reason for a separate file | Architect agent |
+| 2026-05-06 | 1 | `ITicketRepository.GetAllAsync()` takes no filter params | Service layer handles filtering/pagination on the returned collection; keeps repo interface minimal | Architect agent |
 
 ---
 
