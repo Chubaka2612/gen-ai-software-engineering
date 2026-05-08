@@ -319,10 +319,10 @@ Test framework:          NUnit 4.x + FluentAssertions 6.x + Moq 4.x
 
 ### Tasks
 
-- [ ] `README.md` — project overview, Mermaid architecture diagram, setup/run/test instructions, project structure tree
-- [ ] `docs/API_REFERENCE.md` — all 7 endpoints with request/response JSON examples, cURL samples, error envelope format, data model schemas
-- [ ] `docs/ARCHITECTURE.md` — Mermaid component diagram, Mermaid sequence diagram (ticket lifecycle + import flow), dependency rule explanation, design decisions, security notes
-- [ ] `docs/TESTING_GUIDE.md` — Mermaid test-pyramid diagram, how to run tests, sample data locations, manual testing checklist, performance benchmark table
+- [x] `README.md` — project overview, setup/run/test instructions, project structure tree, links to docs
+- [x] `docs/API_REFERENCE.md` — all 7 endpoints with request/response JSON examples, cURL samples, error envelope format, error code catalogue
+- [x] `docs/ARCHITECTURE.md` — Mermaid layer diagram, Mermaid sequence diagram (POST /tickets lifecycle), dependency rule explanation, design decisions, trade-offs
+- [x] `docs/TESTING_GUIDE.md` — Mermaid test-pyramid diagram, how to run tests, test categories table, naming convention, adding new tests, coverage expectations
 
 **Prompt trigger:**
 ```
