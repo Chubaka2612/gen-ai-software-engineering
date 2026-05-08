@@ -288,9 +288,9 @@ Business rules:  Ticket must exist (Ticket.NotFound if not);
 
 **Coverage:**
 - [x] Add `coverlet.collector` 6.x to `AiTicketHub.Tests.csproj`
-- [ ] Run `dotnet test --collect:"XPlat Code Coverage"`
-- [ ] Verify overall line coverage > 85%
-- [ ] Save coverage report; take screenshot to `docs/screenshots/test_coverage.png`
+- [x] Run `dotnet test --collect:"XPlat Code Coverage"`
+- [x] Verify overall line coverage > 85% — achieved 93.8% line / 76.3% branch
+- [x] Save coverage report; take screenshot to `docs/screenshots/test_coverage.png`
 
 **Prompt trigger:**
 ```
