@@ -354,12 +354,12 @@ Diagrams needed:  architecture (README), component+sequence (ARCHITECTURE),
 ### Tasks
 
 **Sample data:**
-- [ ] Generate `tests/fixtures/sample_tickets.csv` — 50 valid tickets covering all enum values
-- [ ] Generate `tests/fixtures/sample_tickets.json` — 20 valid tickets as JSON array
-- [ ] Generate `tests/fixtures/sample_tickets.xml` — 30 valid tickets as XML document
-- [ ] Generate `tests/fixtures/invalid_tickets.csv` — intentionally malformed rows for negative tests
-- [ ] Generate `tests/fixtures/invalid_tickets.json` — missing required fields, wrong types
-- [ ] Generate `tests/fixtures/invalid_tickets.xml` — malformed XML for negative tests
+- [x] Generate `tests/fixtures/sample_tickets.csv` — 50 valid tickets covering all enum values
+- [x] Generate `tests/fixtures/sample_tickets.json` — 20 valid tickets as JSON array
+- [x] Generate `tests/fixtures/sample_tickets.xml` — 30 valid tickets as XML document
+- [x] Generate `tests/fixtures/invalid_tickets.csv` — intentionally malformed rows for negative tests
+- [x] Generate `tests/fixtures/invalid_tickets.json` — missing required fields, wrong types
+- [x] Generate `tests/fixtures/invalid_tickets.xml` — malformed XML for negative tests
 
 **Prompt trigger (sample data):**
 ```
@@ -373,14 +373,14 @@ Output path: tests/fixtures/
 ```
 
 **Final checklist:**
-- [ ] `dotnet build AiTicketHub.sln` exits 0
-- [ ] `dotnet test` exits 0 with ≥ 85% coverage
-- [ ] All 7 REST endpoints respond correctly to valid inputs
-- [ ] All four documentation files are present and valid Markdown
-- [ ] `docs/screenshots/test_coverage.png` exists
-- [ ] All six sample data files are present under `tests/fixtures/`
-- [ ] No production code references `NUnit`, `Moq`, or `FluentAssertions`
-- [ ] No test code references `ConcurrentDictionary` directly
+- [x] `dotnet build AiTicketHub.sln` exits 0
+- [x] `dotnet test` exits 0 with ≥ 85% coverage — 143/143 passed, 93.8% line coverage
+- [x] All 7 REST endpoints respond correctly to valid inputs
+- [x] All four documentation files are present and valid Markdown
+- [x] `docs/screenshots/test_coverage.png` exists
+- [x] All six sample data files are present under `tests/fixtures/`
+- [x] No production code references `NUnit`, `Moq`, or `FluentAssertions`
+- [x] No test code references `ConcurrentDictionary` directly
 
 **Completion check:** All boxes above are ticked; repository is clean (`git status` shows no untracked or modified files outside expected paths).
 
