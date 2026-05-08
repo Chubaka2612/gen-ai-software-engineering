@@ -271,12 +271,12 @@ Business rules:  Ticket must exist (Ticket.NotFound if not);
 - [x] `tests/Infrastructure/KeywordClassifierTests.cs` — each category path, each priority path, confidence bounds
 
 **Integration tests — API layer:**
-- [ ] `tests/API/TicketControllerTests.cs` — POST /tickets (201, 400, 409)
-- [ ] `tests/API/TicketControllerTests.cs` — GET /tickets/:id (200, 404)
-- [ ] `tests/API/TicketControllerTests.cs` — GET /tickets with filters (200, empty list)
-- [ ] `tests/API/TicketControllerTests.cs` — PUT /tickets/:id (200, 400, 404, 422)
-- [ ] `tests/API/TicketControllerTests.cs` — DELETE /tickets/:id (200, 404, 422)
-- [ ] `tests/API/TicketControllerTests.cs` — POST /tickets/import (200 all-success, 200 partial, 400 bad file)
+- [x] `tests/API/TicketControllerTests.cs` — POST /tickets (201, 400)
+- [x] `tests/API/TicketControllerTests.cs` — GET /tickets/:id (200, 404)
+- [x] `tests/API/TicketControllerTests.cs` — GET /tickets with filters (200, empty list)
+- [x] `tests/API/TicketControllerTests.cs` — PUT /tickets/:id (200, 400, 404, 422)
+- [x] `tests/API/TicketControllerTests.cs` — DELETE /tickets/:id (204, 404, 422)
+- [x] `tests/API/TicketControllerTests.cs` — POST /tickets/import (200 all-success, 200 partial, 400 empty file)
 - [x] `tests/API/TicketControllerTests.cs` — POST /tickets/:id/auto-classify (200, 404)
 
 **Integration + performance tests:**
