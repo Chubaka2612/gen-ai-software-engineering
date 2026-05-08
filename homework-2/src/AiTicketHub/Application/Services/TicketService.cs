@@ -190,23 +190,27 @@ public class TicketService : ITicketService
         new(t.Id, t.CustomerId, t.CustomerEmail, t.CustomerName,
             t.Subject, t.Description, t.Category, t.Priority,
             t.Status, t.CreatedAt, t.UpdatedAt, t.ResolvedAt,
-            t.AssignedTo, t.Tags, t.Source, t.Browser, t.DeviceType);
+            t.AssignedTo, t.Tags,
+            new TicketMetadata(t.Source, t.Browser, t.DeviceType));
 
     private static GetTicketByIdResponse MapToGetByIdResponse(Ticket t) =>
         new(t.Id, t.CustomerId, t.CustomerEmail, t.CustomerName,
             t.Subject, t.Description, t.Category, t.Priority,
             t.Status, t.CreatedAt, t.UpdatedAt, t.ResolvedAt,
-            t.AssignedTo, t.Tags, t.Source, t.Browser, t.DeviceType);
+            t.AssignedTo, t.Tags,
+            new TicketMetadata(t.Source, t.Browser, t.DeviceType));
 
     private static UpdateTicketResponse MapToUpdateResponse(Ticket t) =>
         new(t.Id, t.CustomerId, t.CustomerEmail, t.CustomerName,
             t.Subject, t.Description, t.Category, t.Priority,
             t.Status, t.CreatedAt, t.UpdatedAt, t.ResolvedAt,
-            t.AssignedTo, t.Tags, t.Source, t.Browser, t.DeviceType);
+            t.AssignedTo, t.Tags,
+            new TicketMetadata(t.Source, t.Browser, t.DeviceType));
 
     private static TicketListItem MapToTicketListItem(Ticket t) =>
         new(t.Id, t.CustomerId, t.CustomerEmail, t.CustomerName,
             t.Subject, t.Description, t.Category, t.Priority,
             t.Status, t.CreatedAt, t.UpdatedAt, t.ResolvedAt,
-            t.AssignedTo, t.Tags, t.Source, t.Browser, t.DeviceType);
+            t.AssignedTo, t.Tags,
+            new TicketMetadata(t.Source, t.Browser, t.DeviceType));
 }

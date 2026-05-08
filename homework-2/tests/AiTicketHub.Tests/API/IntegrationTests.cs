@@ -173,6 +173,28 @@ public class IntegrationTests
         onlyItem.GetProperty("priority").GetString().Should().Be("High");
     }
 
+    // ── Pagination ────────────────────────────────────────────────────────
+
+    [Test]
+    public async Task ListTickets_Pagination_CorrectItemsReturnedPerPage()
+    {
+        for (var i = 1; i <= 5; i++)
+            await CreateTicketWith("Other", "Medium");
+
+        var page1Response = await _client.GetAsync($"{BaseRoute}?page=1&pageSize=2");
+        page1Response.StatusCode.Should().Be(HttpStatusCode.OK);
+        var page1Body = await page1Response.Content.ReadFromJsonAsync<JsonElement>();
+        page1Body.GetProperty("totalCount").GetInt32().Should().Be(5);
+        page1Body.GetProperty("items").GetArrayLength().Should().Be(2);
+        page1Body.GetProperty("page").GetInt32().Should().Be(1);
+
+        var page3Response = await _client.GetAsync($"{BaseRoute}?page=3&pageSize=2");
+        page3Response.StatusCode.Should().Be(HttpStatusCode.OK);
+        var page3Body = await page3Response.Content.ReadFromJsonAsync<JsonElement>();
+        page3Body.GetProperty("items").GetArrayLength().Should().Be(1);
+        page3Body.GetProperty("page").GetInt32().Should().Be(3);
+    }
+
     // ── Helpers ────────────────────────────────────────────────────────────
 
     private async Task<HttpResponseMessage> PutStatusAsync(Guid id, string status)

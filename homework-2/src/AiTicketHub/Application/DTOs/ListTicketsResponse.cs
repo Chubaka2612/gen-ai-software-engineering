@@ -18,9 +18,7 @@ public record TicketListItem(
     DateTime? ResolvedAt,
     string? AssignedTo,
     List<string> Tags,
-    TicketSource Source,
-    string? Browser,
-    DeviceType DeviceType
+    TicketMetadata Metadata
 );
 
 public record ListTicketsResponse(

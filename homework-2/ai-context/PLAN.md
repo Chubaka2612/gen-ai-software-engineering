@@ -374,7 +374,7 @@ Output path: tests/fixtures/
 
 **Final checklist:**
 - [x] `dotnet build AiTicketHub.sln` exits 0
-- [x] `dotnet test` exits 0 with ≥ 85% coverage — 143/143 passed, 93.8% line coverage
+- [x] `dotnet test` exits 0 with ≥ 85% coverage — 148/148 passed, 93.8% line coverage
 - [x] All 7 REST endpoints respond correctly to valid inputs
 - [x] All four documentation files are present and valid Markdown
 - [x] `docs/screenshots/test_coverage.png` exists

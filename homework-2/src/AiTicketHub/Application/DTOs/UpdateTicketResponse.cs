@@ -18,7 +18,5 @@ public record UpdateTicketResponse(
     DateTime? ResolvedAt,
     string? AssignedTo,
     List<string> Tags,
-    TicketSource Source,
-    string? Browser,
-    DeviceType DeviceType
+    TicketMetadata Metadata
 );
