@@ -264,11 +264,11 @@ Business rules:  Ticket must exist (Ticket.NotFound if not);
 - [x] `tests/Application/UpdateTicketValidatorTests.cs` — same field rules
 
 **Unit tests — Infrastructure layer:**
-- [ ] `tests/Infrastructure/TicketRepositoryTests.cs` — Add, GetById, GetAll, Update, Delete concurrency
+- [x] `tests/Infrastructure/TicketRepositoryTests.cs` — Add, GetById, GetAll, Update, Delete concurrency
 - [x] `tests/Infrastructure/CsvParserTests.cs` — valid file, malformed rows, empty file, encoding edge cases
 - [x] `tests/Infrastructure/JsonParserTests.cs` — valid array, missing fields, wrong types, empty array
 - [x] `tests/Infrastructure/XmlParserTests.cs` — valid document, malformed XML, missing elements
-- [ ] `tests/Infrastructure/KeywordClassifierTests.cs` — each category path, each priority path, confidence bounds
+- [x] `tests/Infrastructure/KeywordClassifierTests.cs` — each category path, each priority path, confidence bounds
 
 **Integration tests — API layer:**
 - [ ] `tests/API/TicketControllerTests.cs` — POST /tickets (201, 400, 409)
