@@ -82,6 +82,14 @@ public class TicketController : ControllerBase
         return Ok(result.Value);
     }
 
+    [HttpPost("{id:guid}/auto-classify")]
+    public async Task<IActionResult> AutoClassify(Guid id, [FromBody] AutoClassifyRequest? request)
+    {
+        var result = await _service.AutoClassifyAsync(id, request ?? new AutoClassifyRequest());
+        if (!result.IsSuccess) return MapError(result.Error!);
+        return Ok(result.Value);
+    }
+
     private static string? DetectFormat(string? contentType, string? extension)
     {
         var ct  = contentType?.ToLowerInvariant() ?? string.Empty;

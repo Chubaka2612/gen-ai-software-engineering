@@ -15,5 +15,6 @@ public record CreateTicketRequest(
     DeviceType DeviceType,
     List<string> Tags,
     string? AssignedTo,
-    string? Browser
+    string? Browser,
+    bool AutoClassify = false
 );

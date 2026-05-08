@@ -3,6 +3,8 @@ using System.Collections.Concurrent;
 using AiTicketHub.Application.Interfaces;
 using AiTicketHub.Domain.Common;
 using AiTicketHub.Domain.Entities;
+using AiTicketHub.Domain.Enums;
+
 
 namespace AiTicketHub.Infrastructure.Repositories;
 
@@ -59,5 +61,15 @@ public class TicketRepository : ITicketRepository
                 : Result<Ticket>.Failure(Errors.TicketDuplicate));
         }
         return Task.FromResult<IReadOnlyList<Result<Ticket>>>(results);
+    }
+
+    public Task<Result<Ticket>> UpdateClassificationAsync(Guid id, TicketCategory category, TicketPriority priority)
+    {
+        if (!_store.TryGetValue(id, out var ticket))
+            return Task.FromResult(Result<Ticket>.Failure(Errors.TicketNotFound));
+
+        ticket.ApplyClassification(category, priority);
+        _store[id] = ticket;
+        return Task.FromResult(Result<Ticket>.Success(ticket));
     }
 }

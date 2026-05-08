@@ -199,18 +199,18 @@ Business rules:  File must not be null; allowed formats CSV/JSON/XML;
 
 ### Tasks
 
-- [ ] Implement `KeywordClassifier.cs` in Infrastructure (category + priority rules from TASKS.md §Task 2)
-- [ ] Define `IClassificationService.cs` in Application/Interfaces
-- [ ] Add `AutoClassifyRequest.cs` DTO (optional override flags)
-- [ ] Add `AutoClassifyResponse.cs` DTO (Category, Priority, Confidence: double, Reasoning: string, KeywordsFound: List<string>)
-- [ ] Add `AutoClassifyValidator.cs`
-- [ ] Add `AutoClassify` method to `ITicketService.cs`
-- [ ] Implement `AutoClassify` in `TicketService.cs` (fetch ticket → classify → persist category/priority → return response)
-- [ ] Add `UpdateClassification` method to `ITicketRepository.cs`
-- [ ] Implement `UpdateClassification` in `TicketRepository.cs`
-- [ ] Add `POST /tickets/{id}/auto-classify` action to `TicketController.cs`
-- [ ] Register `IClassificationService → KeywordClassifier` in DI (Singleton)
-- [ ] Add `AutoClassify: bool` flag to `CreateTicketRequest.cs` (optional, triggers auto-classify on creation)
+- [x] Implement `KeywordClassifier.cs` in Infrastructure (category + priority rules from TASKS.md §Task 2)
+- [x] Define `IClassificationService.cs` in Application/Interfaces
+- [x] Add `AutoClassifyRequest.cs` DTO (optional override flags)
+- [x] Add `AutoClassifyResponse.cs` DTO (Category, Priority, Confidence: double, Reasoning: string, KeywordsFound: List<string>)
+- [x] Add `AutoClassifyValidator.cs`
+- [x] Add `AutoClassify` method to `ITicketService.cs`
+- [x] Implement `AutoClassify` in `TicketService.cs` (fetch ticket → classify → persist category/priority → return response)
+- [x] Add `UpdateClassification` method to `ITicketRepository.cs`
+- [x] Implement `UpdateClassification` in `TicketRepository.cs`
+- [x] Add `POST /tickets/{id}/auto-classify` action to `TicketController.cs`
+- [x] Register `IClassificationService → KeywordClassifier` in DI (Singleton)
+- [x] Add `AutoClassify: bool` flag to `CreateTicketRequest.cs` (optional, triggers auto-classify on creation)
 
 **Prompt trigger:**
 ```
@@ -401,6 +401,11 @@ Output path: tests/fixtures/
 | 2026-05-06 | 3 | `IFormFile` validation done inline in controller, no separate validator class | `IFormFile` is an ASP.NET Core type; adding a framework reference to Application layer would violate Clean Architecture. Inline validation keeps Application independent | Developer agent |
 | 2026-05-06 | 3 | `BulkAddAsync` returns `IReadOnlyList<Result<Ticket>>` (one per input) | Enables per-record success/failure tracking for non-atomic partial import without a custom result type | Developer agent |
 | 2026-05-06 | 3 | `TicketImportService` lives in Application/Services and depends on parser interfaces | Parser interfaces are Application contracts; keeping the coordinator in Application preserves Clean Architecture — parsers are infrastructure details behind those interfaces | Developer agent |
+| 2026-05-08 | 4 | `KeywordClassifier` placed in `Infrastructure/Services/`; `IClassificationService` in `Application/Interfaces/` | Classifier is an infrastructure detail (pure keyword logic); the interface lives in Application so TicketService stays decoupled from the concrete implementation | Developer agent |
+| 2026-05-08 | 4 | `AutoClassifyRequest` carries optional `CategoryOverride`/`PriorityOverride`; classifier still runs to produce confidence and reasoning | Overrides substitute only the category/priority fields; keywords and confidence reflect actual text analysis regardless | Developer agent |
+| 2026-05-08 | 4 | `UpdateClassificationAsync` added to `ITicketRepository` as a focused method | Keeps the intent explicit at the interface boundary; internally calls `ApplyClassification` on the domain entity | Developer agent |
+| 2026-05-08 | 4 | `AutoClassify: bool = false` appended as last positional param on `CreateTicketRequest` | Default `false` means the existing contract is unchanged for callers that omit it; classification runs in-process on the same ticket instance already stored | Developer agent |
+| 2026-05-08 | 4 | `Microsoft.Extensions.Logging.Abstractions` added to Infrastructure.csproj | Infrastructure project is a plain .NET SDK project; logging abstractions are not in the base SDK and must be declared explicitly | Developer agent |
 
 ---
 

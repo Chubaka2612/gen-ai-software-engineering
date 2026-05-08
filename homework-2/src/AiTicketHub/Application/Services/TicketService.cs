@@ -14,17 +14,20 @@ public class TicketService : ITicketService
     private readonly IValidator<CreateTicketRequest> _createValidator;
     private readonly IValidator<UpdateTicketRequest> _updateValidator;
     private readonly ITicketImportService _importService;
+    private readonly IClassificationService _classifier;
 
     public TicketService(
         ITicketRepository repository,
         IValidator<CreateTicketRequest> createValidator,
         IValidator<UpdateTicketRequest> updateValidator,
-        ITicketImportService importService)
+        ITicketImportService importService,
+        IClassificationService classifier)
     {
         _repository      = repository;
         _createValidator = createValidator;
         _updateValidator = updateValidator;
         _importService   = importService;
+        _classifier      = classifier;
     }
 
     public async Task<Result<CreateTicketResponse>> CreateTicketAsync(CreateTicketRequest request)
@@ -58,7 +61,13 @@ public class TicketService : ITicketService
         if (!addResult.IsSuccess)
             return Result<CreateTicketResponse>.Failure(addResult.Error!);
 
-        return Result<CreateTicketResponse>.Success(MapToCreateResponse(addResult.Value!));
+        if (request.AutoClassify)
+        {
+            var classification = _classifier.Classify(ticket.Subject, ticket.Description);
+            ticket.ApplyClassification(classification.Category, classification.Priority);
+        }
+
+        return Result<CreateTicketResponse>.Success(MapToCreateResponse(ticket));
     }
 
     public async Task<Result<GetTicketByIdResponse>> GetTicketByIdAsync(Guid id)
@@ -151,6 +160,30 @@ public class TicketService : ITicketService
     {
         var response = await _importService.ImportAsync(input, format, ct);
         return Result<ImportTicketsResponse>.Success(response);
+    }
+
+    public async Task<Result<AutoClassifyResponse>> AutoClassifyAsync(Guid id, AutoClassifyRequest request)
+    {
+        var getResult = await _repository.GetByIdAsync(id);
+        if (!getResult.IsSuccess)
+            return Result<AutoClassifyResponse>.Failure(getResult.Error!);
+
+        var ticket         = getResult.Value!;
+        var classification = _classifier.Classify(ticket.Subject, ticket.Description);
+
+        var category = request.CategoryOverride ?? classification.Category;
+        var priority = request.PriorityOverride ?? classification.Priority;
+
+        var updateResult = await _repository.UpdateClassificationAsync(id, category, priority);
+        if (!updateResult.IsSuccess)
+            return Result<AutoClassifyResponse>.Failure(updateResult.Error!);
+
+        return Result<AutoClassifyResponse>.Success(new AutoClassifyResponse(
+            category,
+            priority,
+            classification.Confidence,
+            classification.Reasoning,
+            classification.KeywordsFound));
     }
 
     private static CreateTicketResponse MapToCreateResponse(Ticket t) =>

@@ -12,4 +12,5 @@ public interface ITicketService
     Task<Result<UpdateTicketResponse>>    UpdateTicketAsync(Guid id, UpdateTicketRequest request);
     Task<Result>                          DeleteTicketAsync(Guid id);
     Task<Result<ImportTicketsResponse>>   ImportTicketsAsync(Stream input, string format, CancellationToken ct = default);
+    Task<Result<AutoClassifyResponse>>    AutoClassifyAsync(Guid id, AutoClassifyRequest request);
 }

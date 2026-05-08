@@ -95,6 +95,14 @@ public class Ticket
         return Result.Success();
     }
 
+    // Applies classifier-determined category and priority.
+    public void ApplyClassification(TicketCategory category, TicketPriority priority)
+    {
+        Category  = category;
+        Priority  = priority;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
     // Applies partial field updates; null values leave the existing field unchanged.
     public void ApplyUpdate(
         string? subject,
