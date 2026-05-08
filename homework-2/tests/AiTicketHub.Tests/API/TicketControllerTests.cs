@@ -17,6 +17,12 @@ public class TicketControllerTests
     private WebApplicationFactory<Program> _factory = null!;
     private HttpClient                     _client  = null!;
 
+    private static readonly JsonSerializerOptions JsonOptions = new()
+    {
+        Converters            = { new System.Text.Json.Serialization.JsonStringEnumConverter() },
+        PropertyNameCaseInsensitive = true
+    };
+
     [SetUp]
     public void SetUp()
     {
@@ -42,7 +48,7 @@ public class TicketControllerTests
 
         response.StatusCode.Should().Be(HttpStatusCode.OK);
 
-        var body = await response.Content.ReadFromJsonAsync<AutoClassifyResponse>();
+        var body = await response.Content.ReadFromJsonAsync<AutoClassifyResponse>(JsonOptions);
         body.Should().NotBeNull();
         body!.Confidence.Should().BeInRange(0.0, 1.0);
         body.Reasoning.Should().NotBeNullOrWhiteSpace();

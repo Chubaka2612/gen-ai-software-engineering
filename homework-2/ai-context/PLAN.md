@@ -253,21 +253,21 @@ Business rules:  Ticket must exist (Ticket.NotFound if not);
 ### Tasks
 
 **Unit tests — Application layer:**
-- [ ] `tests/Application/TicketServiceTests.cs` — CreateTicket (happy path, validation fail, duplicate)
-- [ ] `tests/Application/TicketServiceTests.cs` — GetTicketById (found, not found)
-- [ ] `tests/Application/TicketServiceTests.cs` — ListTickets (empty, filtered, paged)
-- [ ] `tests/Application/TicketServiceTests.cs` — UpdateTicket (valid, not found, invalid status transition)
-- [ ] `tests/Application/TicketServiceTests.cs` — DeleteTicket (valid, not found, resolved/closed rejection)
-- [ ] `tests/Application/TicketServiceTests.cs` — ImportTickets (all success, partial failure, all failure)
-- [ ] `tests/Application/TicketServiceTests.cs` — AutoClassify (each category, each priority, not found)
-- [ ] `tests/Application/CreateTicketValidatorTests.cs` — subject bounds, description bounds, email format
-- [ ] `tests/Application/UpdateTicketValidatorTests.cs` — same field rules
+- [x] `tests/Application/TicketServiceTests.cs` — CreateTicket (happy path, validation fail, duplicate)
+- [x] `tests/Application/TicketServiceTests.cs` — GetTicketById (found, not found)
+- [x] `tests/Application/TicketServiceTests.cs` — ListTickets (empty, filtered, paged)
+- [x] `tests/Application/TicketServiceTests.cs` — UpdateTicket (valid, not found, invalid status transition)
+- [x] `tests/Application/TicketServiceTests.cs` — DeleteTicket (valid, not found, resolved/closed rejection)
+- [x] `tests/Application/TicketServiceTests.cs` — ImportTickets (all success, partial failure, all failure)
+- [x] `tests/Application/TicketServiceTests.cs` — AutoClassify (each category, each priority, not found)
+- [x] `tests/Application/CreateTicketValidatorTests.cs` — subject bounds, description bounds, email format
+- [x] `tests/Application/UpdateTicketValidatorTests.cs` — same field rules
 
 **Unit tests — Infrastructure layer:**
 - [ ] `tests/Infrastructure/TicketRepositoryTests.cs` — Add, GetById, GetAll, Update, Delete concurrency
-- [ ] `tests/Infrastructure/CsvParserTests.cs` — valid file, malformed rows, empty file, encoding edge cases
-- [ ] `tests/Infrastructure/JsonParserTests.cs` — valid array, missing fields, wrong types, empty array
-- [ ] `tests/Infrastructure/XmlParserTests.cs` — valid document, malformed XML, missing elements
+- [x] `tests/Infrastructure/CsvParserTests.cs` — valid file, malformed rows, empty file, encoding edge cases
+- [x] `tests/Infrastructure/JsonParserTests.cs` — valid array, missing fields, wrong types, empty array
+- [x] `tests/Infrastructure/XmlParserTests.cs` — valid document, malformed XML, missing elements
 - [ ] `tests/Infrastructure/KeywordClassifierTests.cs` — each category path, each priority path, confidence bounds
 
 **Integration tests — API layer:**
@@ -277,7 +277,7 @@ Business rules:  Ticket must exist (Ticket.NotFound if not);
 - [ ] `tests/API/TicketControllerTests.cs` — PUT /tickets/:id (200, 400, 404, 422)
 - [ ] `tests/API/TicketControllerTests.cs` — DELETE /tickets/:id (200, 404, 422)
 - [ ] `tests/API/TicketControllerTests.cs` — POST /tickets/import (200 all-success, 200 partial, 400 bad file)
-- [ ] `tests/API/TicketControllerTests.cs` — POST /tickets/:id/auto-classify (200, 404)
+- [x] `tests/API/TicketControllerTests.cs` — POST /tickets/:id/auto-classify (200, 404)
 
 **Integration + performance tests:**
 - [ ] `tests/API/IntegrationTests.cs` — full lifecycle: create → classify → update → resolve → delete
@@ -287,6 +287,7 @@ Business rules:  Ticket must exist (Ticket.NotFound if not);
 - [ ] `tests/API/PerformanceTests.cs` — ListTickets benchmark (1000 tickets, p95 < 200 ms)
 
 **Coverage:**
+- [x] Add `coverlet.collector` 6.x to `AiTicketHub.Tests.csproj`
 - [ ] Run `dotnet test --collect:"XPlat Code Coverage"`
 - [ ] Verify overall line coverage > 85%
 - [ ] Save coverage report; take screenshot to `docs/screenshots/test_coverage.png`
