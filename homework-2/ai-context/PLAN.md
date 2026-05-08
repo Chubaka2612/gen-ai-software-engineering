@@ -280,11 +280,11 @@ Business rules:  Ticket must exist (Ticket.NotFound if not);
 - [x] `tests/API/TicketControllerTests.cs` — POST /tickets/:id/auto-classify (200, 404)
 
 **Integration + performance tests:**
-- [ ] `tests/API/IntegrationTests.cs` — full lifecycle: create → classify → update → resolve → delete
-- [ ] `tests/API/IntegrationTests.cs` — bulk import → auto-classify all imported tickets
-- [ ] `tests/API/IntegrationTests.cs` — 20 concurrent CreateTicket requests (no data race)
-- [ ] `tests/API/IntegrationTests.cs` — combined filter by category AND priority
-- [ ] `tests/API/PerformanceTests.cs` — ListTickets benchmark (1000 tickets, p95 < 200 ms)
+- [x] `tests/API/IntegrationTests.cs` — full lifecycle: create → classify → update → resolve → delete
+- [x] `tests/API/IntegrationTests.cs` — bulk import → auto-classify all imported tickets
+- [x] `tests/API/IntegrationTests.cs` — 20 concurrent CreateTicket requests (no data race)
+- [x] `tests/API/IntegrationTests.cs` — combined filter by category AND priority
+- [x] `tests/API/PerformanceTests.cs` — ListTickets benchmark (1000 tickets, p95 < 200 ms)
 
 **Coverage:**
 - [x] Add `coverlet.collector` 6.x to `AiTicketHub.Tests.csproj`
