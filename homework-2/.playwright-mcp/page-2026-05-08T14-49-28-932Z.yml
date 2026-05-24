@@ -1,0 +1,994 @@
+- generic [ref=e3]:
+  - heading "Summary Star Sponsor" [level=1] [ref=e4]:
+    - text: Summary
+    - link "Star" [ref=e5] [cursor=pointer]:
+      - /url: https://github.com/danielpalme/ReportGenerator
+      - text: Star
+    - link "Sponsor" [ref=e7] [cursor=pointer]:
+      - /url: https://github.com/sponsors/danielpalme
+      - text: Sponsor
+  - generic [ref=e9]:
+    - generic [ref=e10]:
+      - generic [ref=e11]: Information
+      - table [ref=e14]:
+        - rowgroup [ref=e15]:
+          - 'row "Parser: Cobertura" [ref=e16]':
+            - rowheader "Parser:" [ref=e17]
+            - cell "Cobertura" [ref=e18]
+          - 'row "Assemblies: 4" [ref=e19]':
+            - rowheader "Assemblies:" [ref=e20]
+            - cell "4" [ref=e21]
+          - 'row "Classes: 35" [ref=e22]':
+            - rowheader "Classes:" [ref=e23]
+            - cell "35" [ref=e24]
+          - 'row "Files: 32" [ref=e25]':
+            - rowheader "Files:" [ref=e26]
+            - cell "32" [ref=e27]
+          - 'row "Coverage date: 5/8/2026 - 4:47:19 PM" [ref=e28]':
+            - rowheader "Coverage date:" [ref=e29]
+            - cell "5/8/2026 - 4:47:19 PM" [ref=e30]
+    - generic [ref=e31]:
+      - generic [ref=e32]: Line coverage
+      - generic [ref=e33]:
+        - generic [ref=e34]: 93%
+        - table [ref=e36]:
+          - rowgroup [ref=e37]:
+            - 'row "Covered lines: 1032" [ref=e38]':
+              - rowheader "Covered lines:" [ref=e39]
+              - cell "1032" [ref=e40]
+            - 'row "Uncovered lines: 68" [ref=e41]':
+              - rowheader "Uncovered lines:" [ref=e42]
+              - cell "68" [ref=e43]
+            - 'row "Coverable lines: 1100" [ref=e44]':
+              - rowheader "Coverable lines:" [ref=e45]
+              - cell "1100" [ref=e46]
+            - 'row "Total lines: 1648" [ref=e47]':
+              - rowheader "Total lines:" [ref=e48]
+              - cell "1648" [ref=e49]
+            - 'row "Line coverage: 93.8%" [ref=e50]':
+              - rowheader "Line coverage:" [ref=e51]
+              - cell "93.8%" [ref=e52]
+    - generic [ref=e53]:
+      - generic [ref=e54]: Branch coverage
+      - generic [ref=e55]:
+        - generic [ref=e56]: 76%
+        - table [ref=e58]:
+          - rowgroup [ref=e59]:
+            - 'row "Covered branches: 277" [ref=e60]':
+              - rowheader "Covered branches:" [ref=e61]
+              - cell "277" [ref=e62]
+            - 'row "Total branches: 363" [ref=e63]':
+              - rowheader "Total branches:" [ref=e64]
+              - cell "363" [ref=e65]
+            - 'row "Branch coverage: 76.3%" [ref=e66]':
+              - rowheader "Branch coverage:" [ref=e67]
+              - cell "76.3%" [ref=e68]
+    - generic [ref=e69]:
+      - generic [ref=e70]: Method coverage
+      - generic [ref=e72]:
+        - paragraph [ref=e73]: Feature is only available for sponsors
+        - link "Upgrade to PRO version" [ref=e74] [cursor=pointer]:
+          - /url: https://reportgenerator.io/pro
+  - heading "Risk Hotspots" [level=1] [ref=e75]
+  - generic [ref=e77]:
+    - generic [ref=e78]:
+      - combobox [ref=e80]:
+        - option "Assembly" [selected]
+        - option "AiTicketHub.API"
+        - option "AiTicketHub.Domain"
+        - option "AiTicketHub.Infrastructure"
+      - generic [ref=e81]:
+        - text: "Filter:"
+        - searchbox [ref=e82]
+    - table [ref=e84]:
+      - rowgroup [ref=e91]:
+        - row "Assembly Class Method Crap Score Cyclomatic complexity" [ref=e92]:
+          - columnheader "Assembly" [ref=e93]:
+            - link "Assembly" [ref=e94] [cursor=pointer]:
+              - /url: "#"
+              - text: Assembly
+          - columnheader "Class" [ref=e96]:
+            - link "Class" [ref=e97] [cursor=pointer]:
+              - /url: "#"
+              - text: Class
+          - columnheader "Method" [ref=e99]:
+            - link "Method" [ref=e100] [cursor=pointer]:
+              - /url: "#"
+              - text: Method
+          - columnheader "Crap Score" [ref=e102]:
+            - link "Crap Score" [ref=e103] [cursor=pointer]:
+              - /url: "#"
+              - text: Crap Score
+            - link [ref=e105] [cursor=pointer]:
+              - /url: https://googletesting.blogspot.de/2011/02/this-code-is-crap.html
+          - columnheader "Cyclomatic complexity" [ref=e107]:
+            - link "Cyclomatic complexity" [ref=e108] [cursor=pointer]:
+              - /url: "#"
+              - text: Cyclomatic complexity
+            - link [ref=e110] [cursor=pointer]:
+              - /url: https://en.wikipedia.org/wiki/Cyclomatic_complexity
+      - rowgroup [ref=e112]:
+        - row "AiTicketHub.Infrastructure AiTicketHub.Infrastructure.Parsers.CsvTicketParser MapRow(...) 39 36" [ref=e113]:
+          - cell "AiTicketHub.Infrastructure" [ref=e114]
+          - cell "AiTicketHub.Infrastructure.Parsers.CsvTicketParser" [ref=e115]:
+            - link "AiTicketHub.Infrastructure.Parsers.CsvTicketParser" [ref=e116] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_CsvTicketParser.html
+          - cell "MapRow(...)" [ref=e117]:
+            - link "MapRow(...)" [ref=e118] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_CsvTicketParser.html#file0_line47
+          - cell "39" [ref=e119]
+          - cell "36" [ref=e120]
+        - row "AiTicketHub.Infrastructure AiTicketHub.Infrastructure.Parsers.XmlTicketParser MapElement(...) 39 36" [ref=e121]:
+          - cell "AiTicketHub.Infrastructure" [ref=e122]
+          - cell "AiTicketHub.Infrastructure.Parsers.XmlTicketParser" [ref=e123]:
+            - link "AiTicketHub.Infrastructure.Parsers.XmlTicketParser" [ref=e124] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_XmlTicketParser.html
+          - cell "MapElement(...)" [ref=e125]:
+            - link "MapElement(...)" [ref=e126] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_XmlTicketParser.html#file0_line54
+          - cell "39" [ref=e127]
+          - cell "36" [ref=e128]
+        - row "AiTicketHub.Infrastructure AiTicketHub.Infrastructure.Parsers.JsonTicketParser MapElement(...) 36 34" [ref=e129]:
+          - cell "AiTicketHub.Infrastructure" [ref=e130]
+          - cell "AiTicketHub.Infrastructure.Parsers.JsonTicketParser" [ref=e131]:
+            - link "AiTicketHub.Infrastructure.Parsers.JsonTicketParser" [ref=e132] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_JsonTicketParser.html
+          - cell "MapElement(...)" [ref=e133]:
+            - link "MapElement(...)" [ref=e134] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_JsonTicketParser.html#file0_line59
+          - cell "36" [ref=e135]
+          - cell "34" [ref=e136]
+        - row "AiTicketHub.Infrastructure AiTicketHub.Infrastructure.Services.KeywordClassifier Classify(...) 30 30" [ref=e137]:
+          - cell "AiTicketHub.Infrastructure" [ref=e138]
+          - cell "AiTicketHub.Infrastructure.Services.KeywordClassifier" [ref=e139]:
+            - link "AiTicketHub.Infrastructure.Services.KeywordClassifier" [ref=e140] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_KeywordClassifier.html
+          - cell "Classify(...)" [ref=e141]:
+            - link "Classify(...)" [ref=e142] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_KeywordClassifier.html#file0_line38
+          - cell "30" [ref=e143]
+          - cell "30" [ref=e144]
+        - row "AiTicketHub.API AiTicketHub.API.Controllers.TicketController DetectFormat(...) 26 20" [ref=e145]:
+          - cell "AiTicketHub.API" [ref=e146]
+          - cell "AiTicketHub.API.Controllers.TicketController" [ref=e147]:
+            - link "AiTicketHub.API.Controllers.TicketController" [ref=e148] [cursor=pointer]:
+              - /url: AiTicketHub.API_TicketController.html
+          - cell "DetectFormat(...)" [ref=e149]:
+            - link "DetectFormat(...)" [ref=e150] [cursor=pointer]:
+              - /url: AiTicketHub.API_TicketController.html#file0_line94
+          - cell "26" [ref=e151]
+          - cell "20" [ref=e152]
+        - row "AiTicketHub.Domain AiTicketHub.Domain.Entities.Ticket TransitionTo(...) 17 17" [ref=e153]:
+          - cell "AiTicketHub.Domain" [ref=e154]
+          - cell "AiTicketHub.Domain.Entities.Ticket" [ref=e155]:
+            - link "AiTicketHub.Domain.Entities.Ticket" [ref=e156] [cursor=pointer]:
+              - /url: AiTicketHub.Domain_Ticket.html
+          - cell "TransitionTo(...)" [ref=e157]:
+            - link "TransitionTo(...)" [ref=e158] [cursor=pointer]:
+              - /url: AiTicketHub.Domain_Ticket.html#file0_line67
+          - cell "17" [ref=e159]
+          - cell "17" [ref=e160]
+        - row "AiTicketHub.Domain AiTicketHub.Domain.Entities.Ticket ApplyUpdate(...) 16 16" [ref=e161]:
+          - cell "AiTicketHub.Domain" [ref=e162]
+          - cell "AiTicketHub.Domain.Entities.Ticket" [ref=e163]:
+            - link "AiTicketHub.Domain.Entities.Ticket" [ref=e164] [cursor=pointer]:
+              - /url: AiTicketHub.Domain_Ticket.html
+          - cell "ApplyUpdate(...)" [ref=e165]:
+            - link "ApplyUpdate(...)" [ref=e166] [cursor=pointer]:
+              - /url: AiTicketHub.Domain_Ticket.html#file0_line116
+          - cell "16" [ref=e167]
+          - cell "16" [ref=e168]
+  - heading "Coverage" [level=1] [ref=e169]
+  - generic [ref=e171]:
+    - generic [ref=e172]:
+      - generic [ref=e173]:
+        - link "Collapse all" [ref=e174] [cursor=pointer]:
+          - /url: "#"
+        - text: "|"
+        - link "Expand all" [ref=e175] [cursor=pointer]:
+          - /url: "#"
+      - generic [ref=e176]:
+        - generic [ref=e177]: By assembly
+        - text: "Grouping:"
+        - slider [ref=e178]: "0"
+      - button "Select coverage types & metrics" [ref=e180] [cursor=pointer]: Select coverage types & metrics
+    - table [ref=e183]:
+      - rowgroup [ref=e196]:
+        - row "Line coverage Branch coverage" [ref=e197]:
+          - columnheader [ref=e198]
+          - columnheader "Line coverage" [ref=e199]
+          - columnheader "Branch coverage" [ref=e200]
+        - 'row "Filter: ngx-slider ngx-slider" [ref=e201]':
+          - cell "Filter:" [ref=e202]:
+            - searchbox "Filter:" [ref=e203]
+          - cell "ngx-slider" [ref=e204]:
+            - generic "ngx-slider" [ref=e205]:
+              - slider "ngx-slider" [ref=e210] [cursor=pointer]
+              - slider "ngx-slider-max" [ref=e211] [cursor=pointer]
+              - generic [ref=e212]: "0"
+              - generic [ref=e213]: "100"
+              - generic [ref=e214]: "0"
+              - generic [ref=e215]: "100"
+          - cell "ngx-slider" [ref=e250]:
+            - generic "ngx-slider" [ref=e251]:
+              - slider "ngx-slider" [ref=e256] [cursor=pointer]
+              - slider "ngx-slider-max" [ref=e257] [cursor=pointer]
+              - generic [ref=e258]: "0"
+              - generic [ref=e259]: "100"
+              - generic [ref=e260]: "0"
+              - generic [ref=e261]: "100"
+        - row "Name Covered Uncovered Coverable Total Percentage Covered Total Percentage" [ref=e296]:
+          - columnheader "Name" [ref=e297]:
+            - link "Name" [ref=e298] [cursor=pointer]:
+              - /url: "#"
+              - text: Name
+          - columnheader "Covered" [ref=e300]:
+            - link "Covered" [ref=e301] [cursor=pointer]:
+              - /url: "#"
+              - text: Covered
+          - columnheader "Uncovered" [ref=e303]:
+            - link "Uncovered" [ref=e304] [cursor=pointer]:
+              - /url: "#"
+              - text: Uncovered
+          - columnheader "Coverable" [ref=e306]:
+            - link "Coverable" [ref=e307] [cursor=pointer]:
+              - /url: "#"
+              - text: Coverable
+          - columnheader "Total" [ref=e309]:
+            - link "Total" [ref=e310] [cursor=pointer]:
+              - /url: "#"
+              - text: Total
+          - columnheader "Percentage" [ref=e312]:
+            - link "Percentage" [ref=e313] [cursor=pointer]:
+              - /url: "#"
+              - text: Percentage
+          - columnheader "Covered" [ref=e315]:
+            - link "Covered" [ref=e316] [cursor=pointer]:
+              - /url: "#"
+              - text: Covered
+          - columnheader "Total" [ref=e318]:
+            - link "Total" [ref=e319] [cursor=pointer]:
+              - /url: "#"
+              - text: Total
+          - columnheader "Percentage" [ref=e321]:
+            - link "Percentage" [ref=e322] [cursor=pointer]:
+              - /url: "#"
+              - text: Percentage
+      - rowgroup [ref=e324]:
+        - row "AiTicketHub.API 86 7 93 183 92.4% 31 54 57.4%" [ref=e325]:
+          - columnheader "AiTicketHub.API" [ref=e326]:
+            - link "AiTicketHub.API" [ref=e327] [cursor=pointer]:
+              - /url: "#"
+              - text: AiTicketHub.API
+          - columnheader "86" [ref=e329]
+          - columnheader "7" [ref=e330]
+          - columnheader "93" [ref=e331]
+          - columnheader "183" [ref=e332]
+          - columnheader "92.4%" [ref=e333]
+          - columnheader [ref=e334]:
+            - table [ref=e336]:
+              - cell [ref=e337]
+              - cell [ref=e338]
+          - columnheader "31" [ref=e339]
+          - columnheader "54" [ref=e340]
+          - columnheader "57.4%" [ref=e341]
+          - columnheader [ref=e342]:
+            - table [ref=e344]:
+              - cell [ref=e345]
+              - cell [ref=e346]
+        - row "AiTicketHub.API.Controllers.TicketController 54 7 61 112 88.5% 31 54 57.4%" [ref=e347]:
+          - cell "AiTicketHub.API.Controllers.TicketController" [ref=e348]:
+            - link "AiTicketHub.API.Controllers.TicketController" [ref=e349] [cursor=pointer]:
+              - /url: AiTicketHub.API_TicketController.html
+          - cell "54" [ref=e350]
+          - cell "7" [ref=e351]
+          - cell "61" [ref=e352]
+          - cell "112" [ref=e353]
+          - cell "88.5%" [ref=e354]
+          - cell [ref=e355]:
+            - table [ref=e357]:
+              - cell [ref=e358]
+              - cell [ref=e359]
+          - cell "31" [ref=e360]
+          - cell "54" [ref=e361]
+          - cell "57.4%" [ref=e362]
+          - cell [ref=e363]:
+            - table [ref=e365]:
+              - cell [ref=e366]
+              - cell [ref=e367]
+        - row "AiTicketHub.API.Extensions.ApplicationServiceExtensions 5 0 5 16 100% 0 0" [ref=e368]:
+          - cell "AiTicketHub.API.Extensions.ApplicationServiceExtensions" [ref=e369]:
+            - link "AiTicketHub.API.Extensions.ApplicationServiceExtensions" [ref=e370] [cursor=pointer]:
+              - /url: AiTicketHub.API_ApplicationServiceExtensions.html
+          - cell "5" [ref=e371]
+          - cell "0" [ref=e372]
+          - cell "5" [ref=e373]
+          - cell "16" [ref=e374]
+          - cell "100%" [ref=e375]
+          - cell [ref=e376]:
+            - table [ref=e378]:
+              - cell [ref=e379]
+          - cell "0" [ref=e380]
+          - cell "0" [ref=e381]
+          - cell "-" [ref=e382]
+          - cell [ref=e383]:
+            - table [ref=e385]:
+              - cell [ref=e386]
+        - row "AiTicketHub.API.Extensions.InfrastructureServiceExtensions 8 0 8 23 100% 0 0" [ref=e387]:
+          - cell "AiTicketHub.API.Extensions.InfrastructureServiceExtensions" [ref=e388]:
+            - link "AiTicketHub.API.Extensions.InfrastructureServiceExtensions" [ref=e389] [cursor=pointer]:
+              - /url: AiTicketHub.API_InfrastructureServiceExtensions.html
+          - cell "8" [ref=e390]
+          - cell "0" [ref=e391]
+          - cell "8" [ref=e392]
+          - cell "23" [ref=e393]
+          - cell "100%" [ref=e394]
+          - cell [ref=e395]:
+            - table [ref=e397]:
+              - cell [ref=e398]
+          - cell "0" [ref=e399]
+          - cell "0" [ref=e400]
+          - cell "-" [ref=e401]
+          - cell [ref=e402]:
+            - table [ref=e404]:
+              - cell [ref=e405]
+        - row "Program 19 0 19 32 100% 0 0" [ref=e406]:
+          - cell "Program" [ref=e407]:
+            - link "Program" [ref=e408] [cursor=pointer]:
+              - /url: AiTicketHub.API_Program.html
+          - cell "19" [ref=e409]
+          - cell "0" [ref=e410]
+          - cell "19" [ref=e411]
+          - cell "32" [ref=e412]
+          - cell "100%" [ref=e413]
+          - cell [ref=e414]:
+            - table [ref=e416]:
+              - cell [ref=e417]
+          - cell "0" [ref=e418]
+          - cell "0" [ref=e419]
+          - cell "-" [ref=e420]
+          - cell [ref=e421]:
+            - table [ref=e423]:
+              - cell [ref=e424]
+        - row "AiTicketHub.Application 412 7 419 659 98.3% 49 60 81.6%" [ref=e425]:
+          - columnheader "AiTicketHub.Application" [ref=e426]:
+            - link "AiTicketHub.Application" [ref=e427] [cursor=pointer]:
+              - /url: "#"
+              - text: AiTicketHub.Application
+          - columnheader "412" [ref=e429]
+          - columnheader "7" [ref=e430]
+          - columnheader "419" [ref=e431]
+          - columnheader "659" [ref=e432]
+          - columnheader "98.3%" [ref=e433]
+          - columnheader [ref=e434]:
+            - table [ref=e436]:
+              - cell [ref=e437]
+              - cell [ref=e438]
+          - columnheader "49" [ref=e439]
+          - columnheader "60" [ref=e440]
+          - columnheader "81.6%" [ref=e441]
+          - columnheader [ref=e442]:
+            - table [ref=e444]:
+              - cell [ref=e445]
+              - cell [ref=e446]
+        - row "AiTicketHub.Application.DTOs.AutoClassifyRequest 4 0 4 9 100% 0 0" [ref=e447]:
+          - cell "AiTicketHub.Application.DTOs.AutoClassifyRequest" [ref=e448]:
+            - link "AiTicketHub.Application.DTOs.AutoClassifyRequest" [ref=e449] [cursor=pointer]:
+              - /url: AiTicketHub.Application_AutoClassifyRequest.html
+          - cell "4" [ref=e450]
+          - cell "0" [ref=e451]
+          - cell "4" [ref=e452]
+          - cell "9" [ref=e453]
+          - cell "100%" [ref=e454]
+          - cell [ref=e455]:
+            - table [ref=e457]:
+              - cell [ref=e458]
+          - cell "0" [ref=e459]
+          - cell "0" [ref=e460]
+          - cell "-" [ref=e461]
+          - cell [ref=e462]:
+            - table [ref=e464]:
+              - cell [ref=e465]
+        - row "AiTicketHub.Application.DTOs.AutoClassifyResponse 7 0 7 12 100% 0 0" [ref=e466]:
+          - cell "AiTicketHub.Application.DTOs.AutoClassifyResponse" [ref=e467]:
+            - link "AiTicketHub.Application.DTOs.AutoClassifyResponse" [ref=e468] [cursor=pointer]:
+              - /url: AiTicketHub.Application_AutoClassifyResponse.html
+          - cell "7" [ref=e469]
+          - cell "0" [ref=e470]
+          - cell "7" [ref=e471]
+          - cell "12" [ref=e472]
+          - cell "100%" [ref=e473]
+          - cell [ref=e474]:
+            - table [ref=e476]:
+              - cell [ref=e477]
+          - cell "0" [ref=e478]
+          - cell "0" [ref=e479]
+          - cell "-" [ref=e480]
+          - cell [ref=e481]:
+            - table [ref=e483]:
+              - cell [ref=e484]
+        - row "AiTicketHub.Application.DTOs.ClassificationResult 7 0 7 12 100% 0 0" [ref=e485]:
+          - cell "AiTicketHub.Application.DTOs.ClassificationResult" [ref=e486]:
+            - link "AiTicketHub.Application.DTOs.ClassificationResult" [ref=e487] [cursor=pointer]:
+              - /url: AiTicketHub.Application_ClassificationResult.html
+          - cell "7" [ref=e488]
+          - cell "0" [ref=e489]
+          - cell "7" [ref=e490]
+          - cell "12" [ref=e491]
+          - cell "100%" [ref=e492]
+          - cell [ref=e493]:
+            - table [ref=e495]:
+              - cell [ref=e496]
+          - cell "0" [ref=e497]
+          - cell "0" [ref=e498]
+          - cell "-" [ref=e499]
+          - cell [ref=e500]:
+            - table [ref=e502]:
+              - cell [ref=e503]
+        - row "AiTicketHub.Application.DTOs.CreateTicketRequest 15 0 15 20 100% 0 0" [ref=e504]:
+          - cell "AiTicketHub.Application.DTOs.CreateTicketRequest" [ref=e505]:
+            - link "AiTicketHub.Application.DTOs.CreateTicketRequest" [ref=e506] [cursor=pointer]:
+              - /url: AiTicketHub.Application_CreateTicketRequest.html
+          - cell "15" [ref=e507]
+          - cell "0" [ref=e508]
+          - cell "15" [ref=e509]
+          - cell "20" [ref=e510]
+          - cell "100%" [ref=e511]
+          - cell [ref=e512]:
+            - table [ref=e514]:
+              - cell [ref=e515]
+          - cell "0" [ref=e516]
+          - cell "0" [ref=e517]
+          - cell "-" [ref=e518]
+          - cell [ref=e519]:
+            - table [ref=e521]:
+              - cell [ref=e522]
+        - row "AiTicketHub.Application.DTOs.CreateTicketResponse 19 0 19 24 100% 0 0" [ref=e523]:
+          - cell "AiTicketHub.Application.DTOs.CreateTicketResponse" [ref=e524]:
+            - link "AiTicketHub.Application.DTOs.CreateTicketResponse" [ref=e525] [cursor=pointer]:
+              - /url: AiTicketHub.Application_CreateTicketResponse.html
+          - cell "19" [ref=e526]
+          - cell "0" [ref=e527]
+          - cell "19" [ref=e528]
+          - cell "24" [ref=e529]
+          - cell "100%" [ref=e530]
+          - cell [ref=e531]:
+            - table [ref=e533]:
+              - cell [ref=e534]
+          - cell "0" [ref=e535]
+          - cell "0" [ref=e536]
+          - cell "-" [ref=e537]
+          - cell [ref=e538]:
+            - table [ref=e540]:
+              - cell [ref=e541]
+        - row "AiTicketHub.Application.DTOs.GetTicketByIdResponse 19 0 19 24 100% 0 0" [ref=e542]:
+          - cell "AiTicketHub.Application.DTOs.GetTicketByIdResponse" [ref=e543]:
+            - link "AiTicketHub.Application.DTOs.GetTicketByIdResponse" [ref=e544] [cursor=pointer]:
+              - /url: AiTicketHub.Application_GetTicketByIdResponse.html
+          - cell "19" [ref=e545]
+          - cell "0" [ref=e546]
+          - cell "19" [ref=e547]
+          - cell "24" [ref=e548]
+          - cell "100%" [ref=e549]
+          - cell [ref=e550]:
+            - table [ref=e552]:
+              - cell [ref=e553]
+          - cell "0" [ref=e554]
+          - cell "0" [ref=e555]
+          - cell "-" [ref=e556]
+          - cell [ref=e557]:
+            - table [ref=e559]:
+              - cell [ref=e560]
+        - row "AiTicketHub.Application.DTOs.ImportErrorItem 1 0 1 10 100% 0 0" [ref=e561]:
+          - cell "AiTicketHub.Application.DTOs.ImportErrorItem" [ref=e562]:
+            - link "AiTicketHub.Application.DTOs.ImportErrorItem" [ref=e563] [cursor=pointer]:
+              - /url: AiTicketHub.Application_ImportErrorItem.html
+          - cell "1" [ref=e564]
+          - cell "0" [ref=e565]
+          - cell "1" [ref=e566]
+          - cell "10" [ref=e567]
+          - cell "100%" [ref=e568]
+          - cell [ref=e569]:
+            - table [ref=e571]:
+              - cell [ref=e572]
+          - cell "0" [ref=e573]
+          - cell "0" [ref=e574]
+          - cell "-" [ref=e575]
+          - cell [ref=e576]:
+            - table [ref=e578]:
+              - cell [ref=e579]
+        - row "AiTicketHub.Application.DTOs.ImportTicketsResponse 5 0 5 10 100% 0 0" [ref=e580]:
+          - cell "AiTicketHub.Application.DTOs.ImportTicketsResponse" [ref=e581]:
+            - link "AiTicketHub.Application.DTOs.ImportTicketsResponse" [ref=e582] [cursor=pointer]:
+              - /url: AiTicketHub.Application_ImportTicketsResponse.html
+          - cell "5" [ref=e583]
+          - cell "0" [ref=e584]
+          - cell "5" [ref=e585]
+          - cell "10" [ref=e586]
+          - cell "100%" [ref=e587]
+          - cell [ref=e588]:
+            - table [ref=e590]:
+              - cell [ref=e591]
+          - cell "0" [ref=e592]
+          - cell "0" [ref=e593]
+          - cell "-" [ref=e594]
+          - cell [ref=e595]:
+            - table [ref=e597]:
+              - cell [ref=e598]
+        - row "AiTicketHub.Application.DTOs.ListTicketsRequest 8 0 8 13 100% 0 0" [ref=e599]:
+          - cell "AiTicketHub.Application.DTOs.ListTicketsRequest" [ref=e600]:
+            - link "AiTicketHub.Application.DTOs.ListTicketsRequest" [ref=e601] [cursor=pointer]:
+              - /url: AiTicketHub.Application_ListTicketsRequest.html
+          - cell "8" [ref=e602]
+          - cell "0" [ref=e603]
+          - cell "8" [ref=e604]
+          - cell "13" [ref=e605]
+          - cell "100%" [ref=e606]
+          - cell [ref=e607]:
+            - table [ref=e609]:
+              - cell [ref=e610]
+          - cell "0" [ref=e611]
+          - cell "0" [ref=e612]
+          - cell "-" [ref=e613]
+          - cell [ref=e614]:
+            - table [ref=e616]:
+              - cell [ref=e617]
+        - row "AiTicketHub.Application.DTOs.ListTicketsResponse 6 0 6 31 100% 0 0" [ref=e618]:
+          - cell "AiTicketHub.Application.DTOs.ListTicketsResponse" [ref=e619]:
+            - link "AiTicketHub.Application.DTOs.ListTicketsResponse" [ref=e620] [cursor=pointer]:
+              - /url: AiTicketHub.Application_ListTicketsResponse.html
+          - cell "6" [ref=e621]
+          - cell "0" [ref=e622]
+          - cell "6" [ref=e623]
+          - cell "31" [ref=e624]
+          - cell "100%" [ref=e625]
+          - cell [ref=e626]:
+            - table [ref=e628]:
+              - cell [ref=e629]
+          - cell "0" [ref=e630]
+          - cell "0" [ref=e631]
+          - cell "-" [ref=e632]
+          - cell [ref=e633]:
+            - table [ref=e635]:
+              - cell [ref=e636]
+        - row "AiTicketHub.Application.DTOs.TicketListItem 19 0 19 31 100% 0 0" [ref=e637]:
+          - cell "AiTicketHub.Application.DTOs.TicketListItem" [ref=e638]:
+            - link "AiTicketHub.Application.DTOs.TicketListItem" [ref=e639] [cursor=pointer]:
+              - /url: AiTicketHub.Application_TicketListItem.html
+          - cell "19" [ref=e640]
+          - cell "0" [ref=e641]
+          - cell "19" [ref=e642]
+          - cell "31" [ref=e643]
+          - cell "100%" [ref=e644]
+          - cell [ref=e645]:
+            - table [ref=e647]:
+              - cell [ref=e648]
+          - cell "0" [ref=e649]
+          - cell "0" [ref=e650]
+          - cell "-" [ref=e651]
+          - cell [ref=e652]:
+            - table [ref=e654]:
+              - cell [ref=e655]
+        - row "AiTicketHub.Application.DTOs.UpdateTicketRequest 11 0 11 16 100% 0 0" [ref=e656]:
+          - cell "AiTicketHub.Application.DTOs.UpdateTicketRequest" [ref=e657]:
+            - link "AiTicketHub.Application.DTOs.UpdateTicketRequest" [ref=e658] [cursor=pointer]:
+              - /url: AiTicketHub.Application_UpdateTicketRequest.html
+          - cell "11" [ref=e659]
+          - cell "0" [ref=e660]
+          - cell "11" [ref=e661]
+          - cell "16" [ref=e662]
+          - cell "100%" [ref=e663]
+          - cell [ref=e664]:
+            - table [ref=e666]:
+              - cell [ref=e667]
+          - cell "0" [ref=e668]
+          - cell "0" [ref=e669]
+          - cell "-" [ref=e670]
+          - cell [ref=e671]:
+            - table [ref=e673]:
+              - cell [ref=e674]
+        - row "AiTicketHub.Application.DTOs.UpdateTicketResponse 19 0 19 24 100% 0 0" [ref=e675]:
+          - cell "AiTicketHub.Application.DTOs.UpdateTicketResponse" [ref=e676]:
+            - link "AiTicketHub.Application.DTOs.UpdateTicketResponse" [ref=e677] [cursor=pointer]:
+              - /url: AiTicketHub.Application_UpdateTicketResponse.html
+          - cell "19" [ref=e678]
+          - cell "0" [ref=e679]
+          - cell "19" [ref=e680]
+          - cell "24" [ref=e681]
+          - cell "100%" [ref=e682]
+          - cell [ref=e683]:
+            - table [ref=e685]:
+              - cell [ref=e686]
+          - cell "0" [ref=e687]
+          - cell "0" [ref=e688]
+          - cell "-" [ref=e689]
+          - cell [ref=e690]:
+            - table [ref=e692]:
+              - cell [ref=e693]
+        - row "AiTicketHub.Application.Import.ParseResult<T> 4 0 4 9 100% 0 0" [ref=e694]:
+          - cell "AiTicketHub.Application.Import.ParseResult<T>" [ref=e695]:
+            - link "AiTicketHub.Application.Import.ParseResult<T>" [ref=e696] [cursor=pointer]:
+              - /url: AiTicketHub.Application_ParseResult_1.html
+          - cell "4" [ref=e697]
+          - cell "0" [ref=e698]
+          - cell "4" [ref=e699]
+          - cell "9" [ref=e700]
+          - cell "100%" [ref=e701]
+          - cell [ref=e702]:
+            - table [ref=e704]:
+              - cell [ref=e705]
+          - cell "0" [ref=e706]
+          - cell "0" [ref=e707]
+          - cell "-" [ref=e708]
+          - cell [ref=e709]:
+            - table [ref=e711]:
+              - cell [ref=e712]
+        - row "AiTicketHub.Application.Import.ParseRowError 1 0 1 4 100% 0 0" [ref=e713]:
+          - cell "AiTicketHub.Application.Import.ParseRowError" [ref=e714]:
+            - link "AiTicketHub.Application.Import.ParseRowError" [ref=e715] [cursor=pointer]:
+              - /url: AiTicketHub.Application_ParseRowError.html
+          - cell "1" [ref=e716]
+          - cell "0" [ref=e717]
+          - cell "1" [ref=e718]
+          - cell "4" [ref=e719]
+          - cell "100%" [ref=e720]
+          - cell [ref=e721]:
+            - table [ref=e723]:
+              - cell [ref=e724]
+          - cell "0" [ref=e725]
+          - cell "0" [ref=e726]
+          - cell "-" [ref=e727]
+          - cell [ref=e728]:
+            - table [ref=e730]:
+              - cell [ref=e731]
+        - row "AiTicketHub.Application.Import.TicketImportRecord 15 0 15 20 100% 0 0" [ref=e732]:
+          - cell "AiTicketHub.Application.Import.TicketImportRecord" [ref=e733]:
+            - link "AiTicketHub.Application.Import.TicketImportRecord" [ref=e734] [cursor=pointer]:
+              - /url: AiTicketHub.Application_TicketImportRecord.html
+          - cell "15" [ref=e735]
+          - cell "0" [ref=e736]
+          - cell "15" [ref=e737]
+          - cell "20" [ref=e738]
+          - cell "100%" [ref=e739]
+          - cell [ref=e740]:
+            - table [ref=e742]:
+              - cell [ref=e743]
+          - cell "0" [ref=e744]
+          - cell "0" [ref=e745]
+          - cell "-" [ref=e746]
+          - cell [ref=e747]:
+            - table [ref=e749]:
+              - cell [ref=e750]
+        - row "AiTicketHub.Application.Services.TicketImportService 54 4 58 86 93.1% 9 14 64.2%" [ref=e751]:
+          - cell "AiTicketHub.Application.Services.TicketImportService" [ref=e752]:
+            - link "AiTicketHub.Application.Services.TicketImportService" [ref=e753] [cursor=pointer]:
+              - /url: AiTicketHub.Application_TicketImportService.html
+          - cell "54" [ref=e754]
+          - cell "4" [ref=e755]
+          - cell "58" [ref=e756]
+          - cell "86" [ref=e757]
+          - cell "93.1%" [ref=e758]
+          - cell [ref=e759]:
+            - table [ref=e761]:
+              - cell [ref=e762]
+              - cell [ref=e763]
+          - cell "9" [ref=e764]
+          - cell "14" [ref=e765]
+          - cell "64.2%" [ref=e766]
+          - cell [ref=e767]:
+            - table [ref=e769]:
+              - cell [ref=e770]
+              - cell [ref=e771]
+        - row "AiTicketHub.Application.Services.TicketService 147 3 150 212 98% 40 46 86.9%" [ref=e772]:
+          - cell "AiTicketHub.Application.Services.TicketService" [ref=e773]:
+            - link "AiTicketHub.Application.Services.TicketService" [ref=e774] [cursor=pointer]:
+              - /url: AiTicketHub.Application_TicketService.html
+          - cell "147" [ref=e775]
+          - cell "3" [ref=e776]
+          - cell "150" [ref=e777]
+          - cell "212" [ref=e778]
+          - cell "98%" [ref=e779]
+          - cell [ref=e780]:
+            - table [ref=e782]:
+              - cell [ref=e783]
+              - cell [ref=e784]
+          - cell "40" [ref=e785]
+          - cell "46" [ref=e786]
+          - cell "86.9%" [ref=e787]
+          - cell [ref=e788]:
+            - table [ref=e790]:
+              - cell [ref=e791]
+              - cell [ref=e792]
+        - row "AiTicketHub.Application.Validators.AutoClassifyValidator 1 0 1 10 100% 0 0" [ref=e793]:
+          - cell "AiTicketHub.Application.Validators.AutoClassifyValidator" [ref=e794]:
+            - link "AiTicketHub.Application.Validators.AutoClassifyValidator" [ref=e795] [cursor=pointer]:
+              - /url: AiTicketHub.Application_AutoClassifyValidator.html
+          - cell "1" [ref=e796]
+          - cell "0" [ref=e797]
+          - cell "1" [ref=e798]
+          - cell "10" [ref=e799]
+          - cell "100%" [ref=e800]
+          - cell [ref=e801]:
+            - table [ref=e803]:
+              - cell [ref=e804]
+          - cell "0" [ref=e805]
+          - cell "0" [ref=e806]
+          - cell "-" [ref=e807]
+          - cell [ref=e808]:
+            - table [ref=e810]:
+              - cell [ref=e811]
+        - row "AiTicketHub.Application.Validators.CreateTicketValidator 27 0 27 45 100% 0 0" [ref=e812]:
+          - cell "AiTicketHub.Application.Validators.CreateTicketValidator" [ref=e813]:
+            - link "AiTicketHub.Application.Validators.CreateTicketValidator" [ref=e814] [cursor=pointer]:
+              - /url: AiTicketHub.Application_CreateTicketValidator.html
+          - cell "27" [ref=e815]
+          - cell "0" [ref=e816]
+          - cell "27" [ref=e817]
+          - cell "45" [ref=e818]
+          - cell "100%" [ref=e819]
+          - cell [ref=e820]:
+            - table [ref=e822]:
+              - cell [ref=e823]
+          - cell "0" [ref=e824]
+          - cell "0" [ref=e825]
+          - cell "-" [ref=e826]
+          - cell [ref=e827]:
+            - table [ref=e829]:
+              - cell [ref=e830]
+        - row "AiTicketHub.Application.Validators.UpdateTicketValidator 23 0 23 37 100% 0 0" [ref=e831]:
+          - cell "AiTicketHub.Application.Validators.UpdateTicketValidator" [ref=e832]:
+            - link "AiTicketHub.Application.Validators.UpdateTicketValidator" [ref=e833] [cursor=pointer]:
+              - /url: AiTicketHub.Application_UpdateTicketValidator.html
+          - cell "23" [ref=e834]
+          - cell "0" [ref=e835]
+          - cell "23" [ref=e836]
+          - cell "37" [ref=e837]
+          - cell "100%" [ref=e838]
+          - cell [ref=e839]:
+            - table [ref=e841]:
+              - cell [ref=e842]
+          - cell "0" [ref=e843]
+          - cell "0" [ref=e844]
+          - cell "-" [ref=e845]
+          - cell [ref=e846]:
+            - table [ref=e848]:
+              - cell [ref=e849]
+        - row "AiTicketHub.Domain 117 1 118 207 99.1% 28 37 75.6%" [ref=e850]:
+          - columnheader "AiTicketHub.Domain" [ref=e851]:
+            - link "AiTicketHub.Domain" [ref=e852] [cursor=pointer]:
+              - /url: "#"
+              - text: AiTicketHub.Domain
+          - columnheader "117" [ref=e854]
+          - columnheader "1" [ref=e855]
+          - columnheader "118" [ref=e856]
+          - columnheader "207" [ref=e857]
+          - columnheader "99.1%" [ref=e858]
+          - columnheader [ref=e859]:
+            - table [ref=e861]:
+              - cell [ref=e862]
+              - cell [ref=e863]
+          - columnheader "28" [ref=e864]
+          - columnheader "37" [ref=e865]
+          - columnheader "75.6%" [ref=e866]
+          - columnheader [ref=e867]:
+            - table [ref=e869]:
+              - cell [ref=e870]
+              - cell [ref=e871]
+        - row "AiTicketHub.Domain.Common.Error 1 0 1 3 100% 0 0" [ref=e872]:
+          - cell "AiTicketHub.Domain.Common.Error" [ref=e873]:
+            - link "AiTicketHub.Domain.Common.Error" [ref=e874] [cursor=pointer]:
+              - /url: AiTicketHub.Domain_Error.html
+          - cell "1" [ref=e875]
+          - cell "0" [ref=e876]
+          - cell "1" [ref=e877]
+          - cell "3" [ref=e878]
+          - cell "100%" [ref=e879]
+          - cell [ref=e880]:
+            - table [ref=e882]:
+              - cell [ref=e883]
+          - cell "0" [ref=e884]
+          - cell "0" [ref=e885]
+          - cell "-" [ref=e886]
+          - cell [ref=e887]:
+            - table [ref=e889]:
+              - cell [ref=e890]
+        - row "AiTicketHub.Domain.Common.Errors 5 0 5 11 100% 0 0" [ref=e891]:
+          - cell "AiTicketHub.Domain.Common.Errors" [ref=e892]:
+            - link "AiTicketHub.Domain.Common.Errors" [ref=e893] [cursor=pointer]:
+              - /url: AiTicketHub.Domain_Errors.html
+          - cell "5" [ref=e894]
+          - cell "0" [ref=e895]
+          - cell "5" [ref=e896]
+          - cell "11" [ref=e897]
+          - cell "100%" [ref=e898]
+          - cell [ref=e899]:
+            - table [ref=e901]:
+              - cell [ref=e902]
+          - cell "0" [ref=e903]
+          - cell "0" [ref=e904]
+          - cell "-" [ref=e905]
+          - cell [ref=e906]:
+            - table [ref=e908]:
+              - cell [ref=e909]
+        - row "AiTicketHub.Domain.Common.Result 9 0 9 33 100% 0 0" [ref=e910]:
+          - cell "AiTicketHub.Domain.Common.Result" [ref=e911]:
+            - link "AiTicketHub.Domain.Common.Result" [ref=e912] [cursor=pointer]:
+              - /url: AiTicketHub.Domain_Result.html
+          - cell "9" [ref=e913]
+          - cell "0" [ref=e914]
+          - cell "9" [ref=e915]
+          - cell "33" [ref=e916]
+          - cell "100%" [ref=e917]
+          - cell [ref=e918]:
+            - table [ref=e920]:
+              - cell [ref=e921]
+          - cell "0" [ref=e922]
+          - cell "0" [ref=e923]
+          - cell "-" [ref=e924]
+          - cell [ref=e925]:
+            - table [ref=e927]:
+              - cell [ref=e928]
+        - row "AiTicketHub.Domain.Common.Result<T> 11 0 11 33 100% 0 0" [ref=e929]:
+          - cell "AiTicketHub.Domain.Common.Result<T>" [ref=e930]:
+            - link "AiTicketHub.Domain.Common.Result<T>" [ref=e931] [cursor=pointer]:
+              - /url: AiTicketHub.Domain_Result_1.html
+          - cell "11" [ref=e932]
+          - cell "0" [ref=e933]
+          - cell "11" [ref=e934]
+          - cell "33" [ref=e935]
+          - cell "100%" [ref=e936]
+          - cell [ref=e937]:
+            - table [ref=e939]:
+              - cell [ref=e940]
+          - cell "0" [ref=e941]
+          - cell "0" [ref=e942]
+          - cell "-" [ref=e943]
+          - cell [ref=e944]:
+            - table [ref=e946]:
+              - cell [ref=e947]
+        - row "AiTicketHub.Domain.Entities.Ticket 91 1 92 127 98.9% 28 37 75.6%" [ref=e948]:
+          - cell "AiTicketHub.Domain.Entities.Ticket" [ref=e949]:
+            - link "AiTicketHub.Domain.Entities.Ticket" [ref=e950] [cursor=pointer]:
+              - /url: AiTicketHub.Domain_Ticket.html
+          - cell "91" [ref=e951]
+          - cell "1" [ref=e952]
+          - cell "92" [ref=e953]
+          - cell "127" [ref=e954]
+          - cell "98.9%" [ref=e955]
+          - cell [ref=e956]:
+            - table [ref=e958]:
+              - cell [ref=e959]
+              - cell [ref=e960]
+          - cell "28" [ref=e961]
+          - cell "37" [ref=e962]
+          - cell "75.6%" [ref=e963]
+          - cell [ref=e964]:
+            - table [ref=e966]:
+              - cell [ref=e967]
+              - cell [ref=e968]
+        - row "AiTicketHub.Infrastructure 417 53 470 673 88.7% 169 212 79.7%" [ref=e969]:
+          - columnheader "AiTicketHub.Infrastructure" [ref=e970]:
+            - link "AiTicketHub.Infrastructure" [ref=e971] [cursor=pointer]:
+              - /url: "#"
+              - text: AiTicketHub.Infrastructure
+          - columnheader "417" [ref=e973]
+          - columnheader "53" [ref=e974]
+          - columnheader "470" [ref=e975]
+          - columnheader "673" [ref=e976]
+          - columnheader "88.7%" [ref=e977]
+          - columnheader [ref=e978]:
+            - table [ref=e980]:
+              - cell [ref=e981]
+              - cell [ref=e982]
+          - columnheader "169" [ref=e983]
+          - columnheader "212" [ref=e984]
+          - columnheader "79.7%" [ref=e985]
+          - columnheader [ref=e986]:
+            - table [ref=e988]:
+              - cell [ref=e989]
+              - cell [ref=e990]
+        - row "AiTicketHub.Infrastructure.Parsers.CsvTicketParser 112 19 131 178 85.4% 45 62 72.5%" [ref=e991]:
+          - cell "AiTicketHub.Infrastructure.Parsers.CsvTicketParser" [ref=e992]:
+            - link "AiTicketHub.Infrastructure.Parsers.CsvTicketParser" [ref=e993] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_CsvTicketParser.html
+          - cell "112" [ref=e994]
+          - cell "19" [ref=e995]
+          - cell "131" [ref=e996]
+          - cell "178" [ref=e997]
+          - cell "85.4%" [ref=e998]
+          - cell [ref=e999]:
+            - table [ref=e1001]:
+              - cell [ref=e1002]
+              - cell [ref=e1003]
+          - cell "45" [ref=e1004]
+          - cell "62" [ref=e1005]
+          - cell "72.5%" [ref=e1006]
+          - cell [ref=e1007]:
+            - table [ref=e1009]:
+              - cell [ref=e1010]
+              - cell [ref=e1011]
+        - row "AiTicketHub.Infrastructure.Parsers.JsonTicketParser 104 18 122 168 85.2% 44 58 75.8%" [ref=e1012]:
+          - cell "AiTicketHub.Infrastructure.Parsers.JsonTicketParser" [ref=e1013]:
+            - link "AiTicketHub.Infrastructure.Parsers.JsonTicketParser" [ref=e1014] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_JsonTicketParser.html
+          - cell "104" [ref=e1015]
+          - cell "18" [ref=e1016]
+          - cell "122" [ref=e1017]
+          - cell "168" [ref=e1018]
+          - cell "85.2%" [ref=e1019]
+          - cell [ref=e1020]:
+            - table [ref=e1022]:
+              - cell [ref=e1023]
+              - cell [ref=e1024]
+          - cell "44" [ref=e1025]
+          - cell "58" [ref=e1026]
+          - cell "75.8%" [ref=e1027]
+          - cell [ref=e1028]:
+            - table [ref=e1030]:
+              - cell [ref=e1031]
+              - cell [ref=e1032]
+        - row "AiTicketHub.Infrastructure.Parsers.XmlTicketParser 91 16 107 150 85% 37 48 77%" [ref=e1033]:
+          - cell "AiTicketHub.Infrastructure.Parsers.XmlTicketParser" [ref=e1034]:
+            - link "AiTicketHub.Infrastructure.Parsers.XmlTicketParser" [ref=e1035] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_XmlTicketParser.html
+          - cell "91" [ref=e1036]
+          - cell "16" [ref=e1037]
+          - cell "107" [ref=e1038]
+          - cell "150" [ref=e1039]
+          - cell "85%" [ref=e1040]
+          - cell [ref=e1041]:
+            - table [ref=e1043]:
+              - cell [ref=e1044]
+              - cell [ref=e1045]
+          - cell "37" [ref=e1046]
+          - cell "48" [ref=e1047]
+          - cell "77%" [ref=e1048]
+          - cell [ref=e1049]:
+            - table [ref=e1051]:
+              - cell [ref=e1052]
+              - cell [ref=e1053]
+        - row "AiTicketHub.Infrastructure.Repositories.TicketRepository 43 0 43 75 100% 14 14 100%" [ref=e1054]:
+          - cell "AiTicketHub.Infrastructure.Repositories.TicketRepository" [ref=e1055]:
+            - link "AiTicketHub.Infrastructure.Repositories.TicketRepository" [ref=e1056] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_TicketRepository.html
+          - cell "43" [ref=e1057]
+          - cell "0" [ref=e1058]
+          - cell "43" [ref=e1059]
+          - cell "75" [ref=e1060]
+          - cell "100%" [ref=e1061]
+          - cell [ref=e1062]:
+            - table [ref=e1064]:
+              - cell [ref=e1065]
+          - cell "14" [ref=e1066]
+          - cell "14" [ref=e1067]
+          - cell "100%" [ref=e1068]
+          - cell [ref=e1069]:
+            - table [ref=e1071]:
+              - cell [ref=e1072]
+        - row "AiTicketHub.Infrastructure.Services.KeywordClassifier 67 0 67 102 100% 29 30 96.6%" [ref=e1073]:
+          - cell "AiTicketHub.Infrastructure.Services.KeywordClassifier" [ref=e1074]:
+            - link "AiTicketHub.Infrastructure.Services.KeywordClassifier" [ref=e1075] [cursor=pointer]:
+              - /url: AiTicketHub.Infrastructure_KeywordClassifier.html
+          - cell "67" [ref=e1076]
+          - cell "0" [ref=e1077]
+          - cell "67" [ref=e1078]
+          - cell "102" [ref=e1079]
+          - cell "100%" [ref=e1080]
+          - cell [ref=e1081]:
+            - table [ref=e1083]:
+              - cell [ref=e1084]
+          - cell "29" [ref=e1085]
+          - cell "30" [ref=e1086]
+          - cell "96.6%" [ref=e1087]
+          - cell [ref=e1088]:
+            - table [ref=e1090]:
+              - cell [ref=e1091]
+              - cell [ref=e1092]
+  - generic [ref=e1093]:
+    - text: "Generated by: ReportGenerator 5.5.9.0"
+    - text: 5/8/2026 - 4:48:24 PM
+    - link "GitHub" [ref=e1094] [cursor=pointer]:
+      - /url: https://github.com/danielpalme/ReportGenerator
+    - text: "|"
+    - link "reportgenerator.io" [ref=e1095] [cursor=pointer]:
+      - /url: https://reportgenerator.io
