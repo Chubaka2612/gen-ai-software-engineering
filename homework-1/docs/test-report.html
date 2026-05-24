@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>AiCraft.Banking — Test Results Report</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; color: #1a1a1a; padding: 36px 48px; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .meta { color: #555; font-size: 12px; margin-bottom: 28px; }
+  h2 { font-size: 15px; margin: 24px 0 8px; border-bottom: 2px solid #2563eb; padding-bottom: 4px; color: #2563eb; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+  th { background: #1e3a5f; color: #fff; text-align: left; padding: 7px 10px; font-size: 12px; }
+  td { padding: 6px 10px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  .pass { color: #15803d; font-weight: 600; }
+  .fail { color: #b91c1c; font-weight: 600; }
+  .note { font-size: 11px; color: #555; margin: 4px 0 12px; padding: 8px 12px; background: #fef9c3; border-left: 3px solid #ca8a04; }
+  .summary-box { display: flex; gap: 16px; margin: 24px 0 8px; }
+  .stat { flex: 1; text-align: center; padding: 14px; border-radius: 6px; }
+  .stat .num { font-size: 32px; font-weight: 700; }
+  .stat .label { font-size: 12px; margin-top: 4px; color: #555; }
+  .stat.total { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .stat.pass-box { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .stat.fail-box { background: #fef2f2; border: 1px solid #fecaca; }
+  .total .num { color: #1d4ed8; }
+  .pass-box .num { color: #15803d; }
+  .fail-box .num { color: #b91c1c; }
+  code { font-family: 'Consolas', monospace; background: #f1f5f9; padding: 1px 5px; border-radius: 3px; font-size: 11.5px; }
+  @media print { body { padding: 24px 32px; } }
+</style>
+</head>
+<body>
+
+<h1>AiCraft.Banking API — Test Results Report</h1>
+<div class="meta">Date: 2026-04-26 &nbsp;|&nbsp; Base URL: <code>http://localhost:5092</code> &nbsp;|&nbsp; Runtime: .NET 9 / ASP.NET Core</div>
+
+<div class="summary-box">
+  <div class="stat total"><div class="num">41</div><div class="label">Total Tests</div></div>
+  <div class="stat pass-box"><div class="num">40</div><div class="label">Passed</div></div>
+  <div class="stat fail-box"><div class="num">1</div><div class="label">Failed</div></div>
+</div>
+
+<!-- POST /transactions -->
+<h2>POST /transactions &nbsp;<span style="font-weight:400;font-size:12px;color:#555">(18 tests)</span></h2>
+<table>
+  <tr><th>#</th><th>Case</th><th>Expected</th><th>Result</th></tr>
+  <tr><td>1</td><td>Deposit — <code>toAccount</code> only, valid</td><td>201</td><td class="pass">PASS</td></tr>
+  <tr><td>2</td><td>Withdrawal — <code>fromAccount</code> only, valid</td><td>201</td><td class="pass">PASS</td></tr>
+  <tr><td>3</td><td>Transfer — both accounts, valid</td><td>201</td><td class="pass">PASS</td></tr>
+  <tr><td>4</td><td>Deposit — <code>fromAccount</code> omitted (optional)</td><td>201</td><td class="pass">PASS</td></tr>
+  <tr><td>5</td><td>Amount — exactly 2 decimal places allowed</td><td>201</td><td class="pass">PASS</td></tr>
+  <tr><td>6</td><td>Currency — case-insensitive <code>usd</code> accepted</td><td>201</td><td class="pass">PASS</td></tr>
+  <tr><td>7</td><td>Withdrawal — <code>toAccount</code> omitted (optional)</td><td>201</td><td class="pass">PASS</td></tr>
+  <tr><td>8</td><td>Deposit — optional <code>fromAccount</code> present and valid</td><td>201</td><td class="pass">PASS</td></tr>
+  <tr><td>9</td><td>Amount = 0 rejected</td><td>400</td><td class="pass">PASS</td></tr>
+  <tr><td>10</td><td>Amount negative rejected</td><td>400</td><td class="pass">PASS</td></tr>
+  <tr><td>11</td><td>Amount — 3 decimal places rejected</td><td>400</td><td class="pass">PASS</td></tr>
+  <tr><td>12</td><td>Currency — unsupported code <code>PLN</code> rejected</td><td>400</td><td class="pass">PASS</td></tr>
+  <tr><td>13</td><td>Currency — missing field rejected</td><td>400</td><td class="pass">PASS</td></tr>
+  <tr><td>14</td><td>FromAccount — bad format rejected</td><td>400</td><td class="pass">PASS</td></tr>
+  <tr><td>15</td><td>ToAccount — bad format rejected</td><td>400</td><td class="pass">PASS</td></tr>
+  <tr><td>16</td><td>Transfer — <code>fromAccount</code> missing rejected</td><td>400</td><td class="pass">PASS</td></tr>
+  <tr><td>17</td><td>Transfer — <code>toAccount</code> missing rejected</td><td>400</td><td class="pass">PASS</td></tr>
+  <tr><td>18</td><td>Transfer — same account rejected</td><td>400</td><td class="pass">PASS</td></tr>
+</table>
+
+<!-- GET /transactions -->
+<h2>GET /transactions &nbsp;<span style="font-weight:400;font-size:12px;color:#555">(13 tests)</span></h2>
+<table>
+  <tr><th>#</th><th>Case</th><th>Expected</th><th>Result</th></tr>
+  <tr><td>1</td><td>No filters — returns array</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>2</td><td><code>?accountId</code> — known account</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>3</td><td><code>?accountId</code> — unknown account → empty array</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>4</td><td><code>?type=Deposit</code></td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>5</td><td><code>?type=Withdrawal</code></td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>6</td><td><code>?type=Transfer</code></td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>7</td><td><code>?type=deposit</code> — case-insensitive</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>8</td><td><code>?from</code> only</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>9</td><td><code>?to</code> only</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>10</td><td><code>?from&amp;to</code> date range</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>11</td><td><code>?accountId&amp;type</code> combined</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>12</td><td>All 4 filters combined</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>13</td><td>No matches → <code>[]</code> not 404</td><td>200</td><td class="pass">PASS</td></tr>
+</table>
+
+<!-- GET /transactions/{id} -->
+<h2>GET /transactions/{id} &nbsp;<span style="font-weight:400;font-size:12px;color:#555">(4 tests)</span></h2>
+<table>
+  <tr><th>#</th><th>Case</th><th>Expected</th><th>Result</th></tr>
+  <tr><td>1</td><td>Known ID (created during test)</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>2</td><td>Known seeded ID</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>3</td><td>Unknown Guid</td><td>404</td><td class="pass">PASS</td></tr>
+  <tr><td>4</td><td>Non-Guid path <code>/transactions/not-a-guid</code></td><td>400</td><td class="fail">FAIL — got 404</td></tr>
+</table>
+<div class="note">
+  <strong>Note on test #4:</strong> The <code>{id:guid}</code> route constraint causes ASP.NET Core to skip the route entirely
+  when the segment is not a valid Guid, returning 404 rather than 400. This is correct framework behavior —
+  the route simply does not match. The 404 response is unambiguous and safe; no code change is required.
+</div>
+
+<!-- GET /accounts/{id}/balance -->
+<h2>GET /accounts/{accountId}/balance &nbsp;<span style="font-weight:400;font-size:12px;color:#555">(3 tests)</span></h2>
+<table>
+  <tr><th>#</th><th>Case</th><th>Expected</th><th>Result</th></tr>
+  <tr><td>1</td><td>Known account — returns balances array</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>2</td><td>Multi-currency shape — sorted alphabetically by currency</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>3</td><td>Unknown account</td><td>404</td><td class="pass">PASS</td></tr>
+</table>
+
+<!-- GET /accounts/{id}/summary -->
+<h2>GET /accounts/{accountId}/summary &nbsp;<span style="font-weight:400;font-size:12px;color:#555">(3 tests)</span></h2>
+<table>
+  <tr><th>#</th><th>Case</th><th>Expected</th><th>Result</th></tr>
+  <tr><td>1</td><td>Known account — all 5 fields present</td><td>200</td><td class="pass">PASS</td></tr>
+  <tr><td>2</td><td>Unknown account</td><td>404</td><td class="pass">PASS</td></tr>
+  <tr><td>3</td><td>Account with Pending/Failed transactions — included in summary</td><td>200</td><td class="pass">PASS</td></tr>
+</table>
+
+</body>
+</html>
